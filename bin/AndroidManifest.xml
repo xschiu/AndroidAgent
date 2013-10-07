@@ -42,6 +42,10 @@
             android:name="com.va.androidagent.Home"
             android:label="@string/title_activity_home" >
         </activity>
+        <activity
+            android:name="com.va.androidagent.Email"
+            android:label="@string/title_activity_email" >
+        </activity>
     </application>
 
 </manifest>

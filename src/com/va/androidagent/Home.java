@@ -18,6 +18,7 @@ public class Home extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		this.chatButton();
+		this.sendEmail();
 	}
 
 	@Override
@@ -37,6 +38,20 @@ public class Home extends Activity {
 			public void onClick(View v) 
 			{
 				Intent intent = new Intent(getApplicationContext(), Chat.class);	
+				startActivity(intent); 
+			}
+		}); 
+	}
+	
+	private void sendEmail()
+	{
+		ImageButton email = (ImageButton)this.findViewById(R.id.emailBtn); 
+		email.setOnClickListener(new ImageButton.OnClickListener()
+		{ 
+			@Override
+			public void onClick(View v) 
+			{
+				Intent intent = new Intent(getApplicationContext(), Email.class);	
 				startActivity(intent); 
 			}
 		}); 

@@ -10,9 +10,9 @@
     <string name="title_activity_functions">Functions</string>
     <string name="title_activity_chat">Chat</string>
     <string name="title_activity_home">Home</string>
-    
     <string name="prompt">  Select your Mood  </string>
-	<drawable name="white">#ffffff</drawable>
+
+    <drawable name="white">#ffffff</drawable>
     <drawable name="black">#000000</drawable>
     <drawable name="green">#347C2C</drawable>
     <drawable name="pink">#FF00FF</drawable>
@@ -23,14 +23,16 @@
     <drawable name="PowderBlue">#b0e0e6</drawable>
     <drawable name="brown">#2F1700</drawable>
     <drawable name="Hotpink">#7D2252</drawable>
+
     <string name="select_Category">Select Category</string>
+
     <drawable name="darkgrey">#606060</drawable>
-    
+
     <string-array name="emotion_icon">
         <item>SadFace</item>
         <item>SmileyFace</item>
     </string-array>
-    
-    
-    
+
+    <string name="title_activity_email">Email</string>
+
 </resources>
