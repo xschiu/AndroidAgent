@@ -19,7 +19,7 @@ public class Chat extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chat);
-		
+		//testtest
 		Spinner mySpinner = (Spinner)findViewById(R.id.spinner1);
         mySpinner.setAdapter(new MyAdapter(Chat.this, R.layout.row, strings));
 	}
