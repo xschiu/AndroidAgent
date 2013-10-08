@@ -32,7 +32,7 @@ public class FrameAnimationActivity extends Activity {
 		llayout.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
-	        	Intent gotomain = new Intent(FrameAnimationActivity.this, Home.class);	
+	        	Intent gotomain = new Intent(FrameAnimationActivity.this, Chat.class);	
 				startActivity(gotomain); 
 	        }
 		});
