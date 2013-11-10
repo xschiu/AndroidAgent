@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,9 +30,36 @@ public class MainActivity extends Activity{
 //		Intent intent = new Intent(this, FrameAnimationActivity.class);
 //		
 //		startActivity(intent);
-		return true;
+		return super.onCreateOptionsMenu(menu);
 	}
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_search:
+	            openSearch();
+	            return true;
+	        case R.id.action_settings:
+	            openSettings();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	private void openSettings() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void openSearch() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	private void finishButton()
 	{
 		Button b = (Button)this.findViewById(R.id.finishBtn); 
@@ -48,6 +76,7 @@ public class MainActivity extends Activity{
 		}); 
 	}
 
+	
 	
 	
 }

@@ -22,17 +22,17 @@ public class FrameAnimationActivity extends Activity {
 		
 		animate();
 		greeting();
-		this.goToMain();
+		this.goToHome();
 		
 	}
 	
-	public void goToMain()
+	public void goToHome()
 	{
 		LinearLayout llayout = (LinearLayout)findViewById(R.id.functionsLayout);
 		llayout.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
-	        	Intent gotomain = new Intent(FrameAnimationActivity.this, Chat.class);	
+	        	Intent gotomain = new Intent(FrameAnimationActivity.this, Home.class);	
 				startActivity(gotomain); 
 	        }
 		});
