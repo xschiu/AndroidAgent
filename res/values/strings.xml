@@ -12,7 +12,11 @@
     <string name="title_activity_home">Home</string>
     <string name="prompt">  Select your Mood  </string>
     <string name="action_search">  Search  </string>
-    
+    <string name="action_chat">Chat</string>
+    <string name="action_events">Events</string>
+    <string name="action_important">Important</string>
+    <string name="action_share">Share</string>
+    <string name="action_email">Email</string>
 
     <drawable name="white">#ffffff</drawable>
     <drawable name="black">#000000</drawable>
@@ -36,5 +40,9 @@
     </string-array>
 
     <string name="title_activity_email">Email</string>
+    <string name="title_activity_tutorial">Tutorial</string>
+    <string name="title_activity_calendar_view">CalendarView</string>
+    <string name="title_activity_calendar">Calendar</string>
+    <string name="title_activity_butler">Butler</string>
 
 </resources>

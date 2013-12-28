@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="planets"> 
+        <item>Chat With Me</item> 
+        <item>Going Out</item> 
+        <item>Move It</item> 
+        <item>Medicine</item> 
+        <item>Function5</item> 
+        <item>Function6</item> 
+        <item>Function7</item> 
+        <item>Function8</item>
+	</string-array>
+</resources>

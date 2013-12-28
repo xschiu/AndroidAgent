@@ -28,8 +28,7 @@ public class Chat extends Activity {
 		setContentView(R.layout.activity_chat);
 		Spinner mySpinner = (Spinner)findViewById(R.id.spinner1);
         mySpinner.setAdapter(new MyAdapter(Chat.this, R.layout.row, strings));
-        
-        
+    
 	    
         this.sendButton();
 	}
@@ -72,8 +71,8 @@ public class Chat extends Activity {
         }   
    }
     
-    private void sendButton()
-	{
+   private void sendButton()
+  {
 		Button b = (Button)this.findViewById(R.id.sendBtn); 
 		b.setOnClickListener(new Button.OnClickListener()
 		{ 
