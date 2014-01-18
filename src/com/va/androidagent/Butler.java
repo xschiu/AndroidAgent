@@ -1,7 +1,6 @@
 package com.va.androidagent;
 
-import com.va.androidagent.Chat.MyAdapter;
-
+import com.va.androidagent.Butler.MyAdapter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -28,7 +27,15 @@ public class Butler extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_butler);
 		Spinner mySpinner = (Spinner)findViewById(R.id.spinner1);
-   //     mySpinner.setAdapter(new MyAdapter(Butler.this, R.layout.row, strings));
+		
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, 
+				R.array.emotion_icon, android.R.layout.simple_spinner_item);
+		// Specify the layout to use when the list of choices appears
+		//adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// Apply the adapter to the spinner
+		//mySpinner.setAdapter(adapter);
+      
+	   mySpinner.setAdapter(new MyAdapter(Butler.this, R.layout.row, strings));
     
 	    
         this.sendButton();
@@ -64,7 +71,7 @@ public class Butler extends Activity {
             TextView label=(TextView)row.findViewById(R.id.mood);
             label.setText(strings[position]);
  
-            ImageView icon=(ImageView)row.findViewById(R.id.image);
+            ImageView icon=(ImageView)row.findViewById(R.id.image1);
             icon.setImageResource(arr_images[position]);
  
             return row;

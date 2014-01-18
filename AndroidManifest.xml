@@ -66,6 +66,14 @@
             android:name="com.va.androidagent.Butler"
             android:label="@string/title_activity_butler" >
         </activity>
+        <activity
+            android:name="com.va.androidagent.Notification"
+            android:label="@string/title_activity_notification" >
+        </activity>
+        <activity
+            android:name="com.va.androidagent.RecordTutorial"
+            android:label="@string/title_activity_record_tutorial" >
+        </activity>
     </application>
 
 </manifest>

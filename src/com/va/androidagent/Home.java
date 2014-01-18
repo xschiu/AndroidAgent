@@ -1,5 +1,7 @@
 package com.va.androidagent;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,27 +9,52 @@ import java.util.Map;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Home extends Activity {
-
+	String[] strings = {"Arousal","Excitement","Pleasure","Contentment","Sleepiness","Depression","Misery","Distress","Neutral"};
+	int arr_images[] = { R.drawable.arousal, R.drawable.excitement,R.drawable.pleasure, R.drawable.contentment, R.drawable.sleepy, R.drawable.depression, R.drawable.misery, R.drawable.distress, R.drawable.neutral};
+	String[] weather = {"Rainning","Sunny","Thunder","Cloudy"};
+	int arr_weather[] = {R.drawable.raining, R.drawable.sunny, R.drawable.thunder, R.drawable.cloudy};
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		//mood spinner
+		Spinner mySpinner = (Spinner)findViewById(R.id.emotionSpinner);
+        mySpinner.setAdapter(new MyAdapter(Home.this, R.layout.row, strings));
+		
+        //weather spinner
+//        Spinner weatherSpinner = (Spinner)findViewById(R.id.weatherSpinner);
+//        weatherSpinner.setAdapter(new WeatherAdapter(Home.this, R.layout.weather, strings));
+        
 		this.chatButton();
 		this.sendEmail();
 		this.tutorialButton();
 		this.calendarButton();
+		this.notificationButton();
 		//this.listView();
 		
 		 initList();
@@ -51,9 +78,54 @@ public class Home extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home, menu);
+		String currentDateString = DateFormat.getDateInstance().format(new Date());
+		TextView todayDate = (TextView)findViewById(R.id.todayDate);
+		//Toast.makeText(this, currentDateTimeString, Toast.LENGTH_SHORT).show();
+		//TextView todayDate = new TextView(this);
+		// textView is the TextView view that; should display it
+		todayDate.setText(currentDateString);
+		
+		//WeekDay
+
+		SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+		Date d = new Date();
+		String dayOfTheWeek = sdf.format(d);
+		TextView weekDay = (TextView)findViewById(R.id.weekDay);
+		weekDay.setText(dayOfTheWeek);
 		return true;
 		
 	}
+	   public class MyAdapter extends ArrayAdapter<String>{
+	    	 
+	        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
+	            super(context, textViewResourceId, objects);
+	        }
+	 
+	        @Override
+	        public View getDropDownView(int position, View convertView,ViewGroup parent) {
+	            return getCustomView(position, convertView, parent);
+	        }
+	 
+	        @Override
+	        public View getView(int position, View convertView, ViewGroup parent) {
+	            return getCustomView(position, convertView, parent);
+	        }
+	 
+	        public View getCustomView(int position, View convertView, ViewGroup parent) {
+	 
+	            LayoutInflater inflater=getLayoutInflater();
+	            View row=inflater.inflate(R.layout.row, parent, false);
+	            TextView label=(TextView)row.findViewById(R.id.mood);
+		   		label.setText(strings[position]);
+	
+	            ImageView icon=(ImageView)row.findViewById(R.id.image1);
+	            icon.setImageResource(arr_images[position]);
+	 
+	            return row;
+	        
+	        }   
+	   }
+	   
 
 /*	private void listView()
 	{
@@ -63,6 +135,8 @@ public class Home extends Activity {
 		
 		
 	}*/
+	
+	
 	
 	private void chatButton()
 	{
@@ -114,6 +188,20 @@ public class Home extends Activity {
 			public void onClick(View v) 
 			{
 				Intent intent = new Intent(getApplicationContext(), Tutorial.class);	
+				startActivity(intent); 
+			}
+		}); 
+	}
+	
+	private void notificationButton()
+	{
+		ImageButton notification = (ImageButton)this.findViewById(R.id.notificationBtn); 
+		notification.setOnClickListener(new ImageButton.OnClickListener()
+		{ 
+			@Override
+			public void onClick(View v) 
+			{
+				Intent intent = new Intent(getApplicationContext(), Notification.class);	
 				startActivity(intent); 
 			}
 		}); 

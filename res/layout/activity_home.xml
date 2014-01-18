@@ -14,29 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <DigitalClock
-            android:id="@+id/digitalClock1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="240dp"
-            android:text="DigitalClock"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout1"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </LinearLayout>
-
         <TableRow
-            android:id="@+id/tableRow1"
+            android:id="@+id/contextPanel1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-
+        
+       
+           
+<!-- 
             <TextView
                 android:id="@+id/txtLocation"
-                android:layout_width="190dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cell_shape"
                 android:padding="5dp"
@@ -46,7 +34,7 @@
 
             <TextView
                 android:id="@+id/txtActivity"
-                android:layout_width="190dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cell_shape"
                 android:padding="5dp"
@@ -56,13 +44,63 @@
 
             <TextView
                 android:id="@+id/txtMotion"
-                android:layout_width="190dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cell_shape"
                 android:padding="5dp"
                 android:text="Motion"
                 android:textAppearance="?android:attr/textAppearanceMedium" >
-            </TextView>
+            </TextView> -->
+
+            <Spinner
+                android:id="@+id/weatherSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:background="@drawable/cloudy" 
+                android:layout_alignRight="@+id/emotionSpinner"/>
+
+		 <Spinner
+                android:id="@+id/emotionSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:layout_alignRight="@+id/emotion_icon"
+        		android:layout_marginTop="42dp" />
+                />
+            
+
+        </TableRow>
+        
+        <TableRow
+	        android:id="@+id/contextPanel2"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	        
+            <TextView
+                android:id="@+id/todayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Large Text"
+                android:textSize="25dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/weekDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Large Text"
+                android:textSize="25dp"
+                android:layout_marginLeft="10dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <DigitalClock
+                android:id="@+id/digitalClock1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DigitalClock" 
+                android:textSize="25dp"
+                android:layout_marginLeft="10dp"
+                />
+           
         </TableRow>
     </TableLayout>
 
@@ -81,89 +119,90 @@
         android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tabview"
         android:layout_alignParentTop="true"
         android:text="28 °C"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+
     <TextView
         android:id="@+id/txtWeather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="480dp"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="480dp"
         android:text="Sunny"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    
-
-    <ImageButton
-        android:id="@+id/mapBtn"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="137dp"
-        android:background="@drawable/map" />
 
     <ImageButton
         android:id="@+id/chatBtn"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignLeft="@+id/tabview"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignTop="@+id/mapBtn"
-        android:layout_marginLeft="220dp"
+        android:layout_toRightOf="@+id/mapBtn"
+        android:layout_marginLeft="25dp"
         android:background="@drawable/chat" />
+    
+     <ImageButton
+        android:id="@+id/tutorialBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@+id/chatBtn"
+        android:layout_marginLeft="25dp"
+        android:layout_alignTop="@+id/chatBtn"
+        android:background="@drawable/questionmark" />
+     
+     <ImageButton
+        android:id="@+id/exerciseBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/tutorialBtn"
+        android:layout_toRightOf="@+id/tutorialBtn"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/dancesport" />
 
     <ImageButton
         android:id="@+id/emailBtn"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignLeft="@+id/mapBtn"
         android:layout_below="@+id/chatBtn"
         android:layout_marginTop="29dp"
         android:background="@drawable/email" />
     
+    <ImageButton
+        android:id="@+id/calendarBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/chatBtn"
+        android:layout_alignTop="@+id/emailBtn"
+        android:background="@drawable/calendar" />
 
     <ImageButton
-        android:id="@+id/exerciseBtn"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignTop="@+id/emailBtn"
-        android:layout_marginLeft="400dp"
-        android:background="@drawable/dancesport" 
-        />
-    
-     <ImageButton
-	     android:id="@+id/tutorialBtn"
-	     android:layout_width="120dp"
-		 android:layout_height="120dp"
-	     android:layout_alignLeft="@+id/exerciseBtn"
-	     android:layout_alignTop="@+id/chatBtn"
-	     android:background="@drawable/questionmark" 
-     />
-     
-     <ImageButton
-            android:id="@+id/calendarBtn"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-           	android:layout_alignLeft="@+id/chatBtn"
-	        android:layout_alignTop="@+id/emailBtn"
-	        android:background="@drawable/calendar" />
-    />
+        android:id="@+id/notificationBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/tutorialBtn"
+        android:layout_below="@+id/tutorialBtn"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/notification" />
 
-    <TableRow
-        android:id="@+id/tabview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
+    <ImageButton
+        android:id="@+id/mapBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/tabla_cuerpo"
+        android:layout_below="@+id/tabla_cuerpo"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/map" />
 
-        <ImageView
-            android:id="@+id/butlerView1"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/android1" 
-			android:layout_marginTop="600dp"
-			android:layout_marginLeft="50dp"/>
-    </TableRow>
+<!--     <fragment
+        android:id="@+id/smartButler"
+        android:name="android.app.DialogFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" 
+        android:background="@drawable/black"
+        /> -->
 
 </RelativeLayout>
