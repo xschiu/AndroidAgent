@@ -53,18 +53,11 @@
             </TextView> -->
 
             <Spinner
-                android:id="@+id/weatherSpinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:background="@drawable/cloudy" 
-                android:layout_alignRight="@+id/emotionSpinner"/>
-
-		 <Spinner
                 android:id="@+id/emotionSpinner"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:layout_alignRight="@+id/emotion_icon"
-        		android:layout_marginTop="42dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp" />
+
                 />
             
 
@@ -77,7 +70,7 @@
 	        
             <TextView
                 android:id="@+id/todayDate"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:text="Large Text"
                 android:textSize="25dp"
@@ -89,7 +82,10 @@
                 android:layout_height="wrap_content"
                 android:text="Large Text"
                 android:textSize="25dp"
-                android:layout_marginLeft="10dp"
+         
+                android:layout_alignLeft="@+id/todayDate"
+                android:layout_alignTop="@+id/todayDate"
+                android:layout_marginLeft="0dp"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <DigitalClock
@@ -98,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:text="DigitalClock" 
                 android:textSize="25dp"
-                android:layout_marginLeft="10dp"
+                android:layout_alignLeft="@+id/weekDay"
+                android:layout_marginLeft="30dp"
                 />
            
         </TableRow>
@@ -194,7 +191,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/map" />
 
-<!--     <fragment
+    <!-- <fragment
         android:id="@+id/smartButler"
         android:name="android.app.DialogFragment"
         android:layout_width="wrap_content"
@@ -202,7 +199,14 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true" 
-        android:background="@drawable/black"
-        /> -->
+        android:background="@drawable/black"/> -->
+
+    <Spinner
+        android:id="@+id/weatherSpinner"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtTemp"
+        android:background="@drawable/cloudy" />
 
 </RelativeLayout>
