@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="Home" >
+    tools:context="Home" 
+    android:id="@+id/my_layout" >
 
     <TableLayout
         android:id="@+id/tabla_cuerpo"
@@ -52,13 +53,32 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" >
             </TextView> -->
 
+            
+
+			<Spinner
+		        android:id="@+id/weatherSpinner"
+		        android:layout_width="80dp"
+		        android:layout_height="80dp"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/txtTemp"
+		        android:layout_marginTop="20dp"
+		        android:background="@drawable/cloudy" />
+
+			<AnalogClock
+			    android:id="@+id/analogClock1"
+			    android:layout_width="100dp"
+			    android:layout_height="100dp"
+			    android:layout_marginTop="10dp"
+			    android:layout_marginLeft="30dp" />
+
             <Spinner
                 android:id="@+id/emotionSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="42dp" />
-
+                android:layout_marginTop="42dp" 
+                android:layout_marginLeft="10dp"
                 />
+
             
 
         </TableRow>
@@ -88,7 +108,7 @@
                 android:layout_marginLeft="0dp"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <DigitalClock
+        <!--     <DigitalClock
                 android:id="@+id/digitalClock1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,7 +116,7 @@
                 android:textSize="25dp"
                 android:layout_alignLeft="@+id/weekDay"
                 android:layout_marginLeft="30dp"
-                />
+                /> -->
            
         </TableRow>
     </TableLayout>
@@ -111,15 +131,15 @@
         android:layout_marginBottom="58dp" >
     </ListView>
     -->
-
-    <TextView
+	
+   <TextView
         android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:text="28 °C"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="70dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <TextView
         android:id="@+id/txtWeather"
         android:layout_width="wrap_content"
@@ -188,7 +208,7 @@
         android:layout_height="60dp"
         android:layout_alignLeft="@+id/tabla_cuerpo"
         android:layout_below="@+id/tabla_cuerpo"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/map" />
 
     <!-- <fragment
@@ -201,12 +221,6 @@
         android:layout_alignParentRight="true" 
         android:background="@drawable/black"/> -->
 
-    <Spinner
-        android:id="@+id/weatherSpinner"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/txtTemp"
-        android:background="@drawable/cloudy" />
+    
 
 </RelativeLayout>

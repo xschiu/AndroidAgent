@@ -9,6 +9,8 @@ import java.util.Map;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import java.text.DateFormat;
@@ -49,6 +51,12 @@ public class Home extends Activity {
         //weather spinner
 //        Spinner weatherSpinner = (Spinner)findViewById(R.id.weatherSpinner);
 //        weatherSpinner.setAdapter(new WeatherAdapter(Home.this, R.layout.weather, strings));
+        
+        MyFragment frag = new MyFragment();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction= manager.beginTransaction();
+        transaction.add(R.id.my_layout,frag,"vivzFragment");
+        transaction.commit();
         
 		this.chatButton();
 		this.sendEmail();
