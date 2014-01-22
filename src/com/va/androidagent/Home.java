@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -28,6 +29,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -38,12 +40,31 @@ public class Home extends Activity {
 	int arr_images[] = { R.drawable.arousal, R.drawable.excitement,R.drawable.pleasure, R.drawable.contentment, R.drawable.sleepy, R.drawable.depression, R.drawable.misery, R.drawable.distress, R.drawable.neutral};
 	String[] weather = {"Rainning","Sunny","Thunder","Cloudy"};
 	int arr_weather[] = {R.drawable.raining, R.drawable.sunny, R.drawable.thunder, R.drawable.cloudy};
+	int arr_location[] = {R.drawable.livingroom, R.drawable.bathroom, R.drawable.bedroom, R.drawable.kitchen};
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		
+		//change background of layout periodically
+		final RelativeLayout locationImage = (RelativeLayout) findViewById(R.id.my_layout);
+		final Handler handler = new Handler();
+		Runnable runnable = new Runnable()
+		{
+			int i = 0;
+			public void run()
+			{
+				locationImage.setBackgroundResource(arr_location[i]);
+					i++;
+				if(i>arr_location.length-1) { i=0; }
+				handler.postDelayed(this, 5000); //for interval
+				
+			}
+		};
+			handler.postDelayed(runnable, 1000); //for initial delay
+		
 		//mood spinner
 		Spinner mySpinner = (Spinner)findViewById(R.id.emotionSpinner);
         mySpinner.setAdapter(new MyAdapter(Home.this, R.layout.row, strings));
@@ -60,9 +81,9 @@ public class Home extends Activity {
         
 		this.chatButton();
 		this.sendEmail();
-		this.tutorialButton();
+		this.playButton();
 		this.calendarButton();
-		this.notificationButton();
+		this.meButton();
 		//this.listView();
 		
 		 initList();
@@ -187,29 +208,29 @@ public class Home extends Activity {
 		}); 
 	}
 	
-	private void tutorialButton()
+	private void playButton()
 	{
-		ImageButton tutorial = (ImageButton)this.findViewById(R.id.tutorialBtn); 
-		tutorial.setOnClickListener(new ImageButton.OnClickListener()
+		ImageButton play = (ImageButton)this.findViewById(R.id.playBtn); 
+		play.setOnClickListener(new ImageButton.OnClickListener()
 		{ 
 			@Override
 			public void onClick(View v) 
 			{
-				Intent intent = new Intent(getApplicationContext(), Tutorial.class);	
+				Intent intent = new Intent(getApplicationContext(), Play.class);	
 				startActivity(intent); 
 			}
 		}); 
 	}
 	
-	private void notificationButton()
+	private void meButton()
 	{
-		ImageButton notification = (ImageButton)this.findViewById(R.id.notificationBtn); 
-		notification.setOnClickListener(new ImageButton.OnClickListener()
+		ImageButton me = (ImageButton)this.findViewById(R.id.meBtn); 
+		me.setOnClickListener(new ImageButton.OnClickListener()
 		{ 
 			@Override
 			public void onClick(View v) 
 			{
-				Intent intent = new Intent(getApplicationContext(), Notification.class);	
+				Intent intent = new Intent(getApplicationContext(), Me.class);	
 				startActivity(intent); 
 			}
 		}); 

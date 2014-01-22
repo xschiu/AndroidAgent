@@ -8,7 +8,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="Home" 
-    android:id="@+id/my_layout" >
+    android:id="@+id/my_layout"
+     >
 
     <TableLayout
         android:id="@+id/tabla_cuerpo"
@@ -148,68 +149,8 @@
         android:layout_marginLeft="480dp"
         android:text="Sunny"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ImageButton
-        android:id="@+id/chatBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignTop="@+id/mapBtn"
-        android:layout_toRightOf="@+id/mapBtn"
-        android:layout_marginLeft="25dp"
-        android:background="@drawable/chat" />
-    
-     <ImageButton
-        android:id="@+id/tutorialBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_toRightOf="@+id/chatBtn"
-        android:layout_marginLeft="25dp"
-        android:layout_alignTop="@+id/chatBtn"
-        android:background="@drawable/questionmark" />
      
-     <ImageButton
-        android:id="@+id/exerciseBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignTop="@+id/tutorialBtn"
-        android:layout_toRightOf="@+id/tutorialBtn"
-        android:layout_marginLeft="25dp"
-        android:background="@drawable/dancesport" />
-
-    <ImageButton
-        android:id="@+id/emailBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/mapBtn"
-        android:layout_below="@+id/chatBtn"
-        android:layout_marginTop="29dp"
-        android:background="@drawable/email" />
-    
-    <ImageButton
-        android:id="@+id/calendarBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/chatBtn"
-        android:layout_alignTop="@+id/emailBtn"
-        android:background="@drawable/calendar" />
-
-    <ImageButton
-        android:id="@+id/notificationBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/tutorialBtn"
-        android:layout_below="@+id/tutorialBtn"
-        android:layout_marginTop="29dp"
-        android:background="@drawable/notification" />
-
-    <ImageButton
-        android:id="@+id/mapBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/tabla_cuerpo"
-        android:layout_below="@+id/tabla_cuerpo"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/map" />
+     
 
     <!-- <fragment
         android:id="@+id/smartButler"
@@ -221,6 +162,82 @@
         android:layout_alignParentRight="true" 
         android:background="@drawable/black"/> -->
 
-    
+    <ImageButton
+        android:id="@+id/learnBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/socialize"
+        android:layout_alignTop="@+id/diaryBtn"
+        android:background="@drawable/learn" />
+
+    <ImageButton
+        android:id="@+id/meBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/tabla_cuerpo"
+        android:layout_below="@+id/tabla_cuerpo"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/me" />
+
+    <ImageButton
+        android:id="@+id/socialize"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/calendarBtn"
+        android:layout_toRightOf="@+id/chatBtn"
+        android:background="@drawable/socialize" />
+
+    <ImageButton
+        android:id="@+id/diaryBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/playBtn"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/playBtn"
+        android:background="@drawable/diary" />
+
+    <ImageButton
+        android:id="@+id/calendarBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/playBtn"
+        android:layout_alignLeft="@+id/diaryBtn"
+        android:background="@drawable/calendar" />
+
+    <ImageButton
+        android:id="@+id/emailBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/mapBtn"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="33dp"
+        android:layout_toLeftOf="@+id/mapBtn"
+        android:background="@drawable/email" />
+
+    <ImageButton
+        android:id="@+id/mapBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/diaryBtn"
+        android:layout_below="@+id/diaryBtn"
+        android:layout_marginTop="58dp"
+        android:background="@drawable/map" />
+
+    <ImageButton
+        android:id="@+id/playBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/meBtn"
+        android:layout_below="@+id/meBtn"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/play" />
+
+    <ImageButton
+        android:id="@+id/chatBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/emailBtn"
+        android:layout_toRightOf="@+id/mapBtn"
+        android:background="@drawable/chat" />
 
 </RelativeLayout>
