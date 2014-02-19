@@ -9,6 +9,7 @@ import java.util.Map;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -36,8 +37,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Home extends Activity {
-	String[] strings = {"Arousal","Excitement","Pleasure","Contentment","Sleepiness","Depression","Misery","Distress","Neutral"};
-	int arr_images[] = { R.drawable.arousal, R.drawable.excitement,R.drawable.pleasure, R.drawable.contentment, R.drawable.sleepy, R.drawable.depression, R.drawable.misery, R.drawable.distress, R.drawable.neutral};
+	String[] strings = {"Excitement","Arousal","Pleasure","Contentment","Sleepiness","Depression","Misery","Distress","Neutral"};
+	int arr_images[] = { R.drawable.excitement, R.drawable.arousal,R.drawable.pleasure, R.drawable.contentment, R.drawable.sleepy, R.drawable.depression, R.drawable.misery, R.drawable.distress, R.drawable.neutral};
 	String[] weather = {"Rainning","Sunny","Thunder","Cloudy"};
 	int arr_weather[] = {R.drawable.raining, R.drawable.sunny, R.drawable.thunder, R.drawable.cloudy};
 	int arr_location[] = {R.drawable.livingroom, R.drawable.bathroom, R.drawable.bedroom, R.drawable.kitchen};
@@ -45,12 +46,14 @@ public class Home extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
 		//change background of layout periodically
 		final RelativeLayout locationImage = (RelativeLayout) findViewById(R.id.my_layout);
 		final Handler handler = new Handler();
+		
 		Runnable runnable = new Runnable()
 		{
 			int i = 0;
@@ -99,6 +102,9 @@ public class Home extends Activity {
 	    // simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
 	  //   SimpleAdapter simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
 	   //  lv.setAdapter(simpleAdpt);
+		 
+//		 TextView tvHeading = (TextView) findViewById(R.id.titleHeading);
+//		 tvHeading.setText("Add New Transaction");
 
 		
 	}
@@ -107,23 +113,33 @@ public class Home extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home, menu);
-		String currentDateString = DateFormat.getDateInstance().format(new Date());
-		TextView todayDate = (TextView)findViewById(R.id.todayDate);
+		
+		//display date
+//		String currentDateString = DateFormat.getDateInstance().format(new Date());
+//		TextView todayDate = (TextView)findViewById(R.id.todayDate);
+//		todayDate.setText(currentDateString);
+		
 		//Toast.makeText(this, currentDateTimeString, Toast.LENGTH_SHORT).show();
 		//TextView todayDate = new TextView(this);
 		// textView is the TextView view that; should display it
-		todayDate.setText(currentDateString);
 		
-		//WeekDay
+		
 
-		SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
-		Date d = new Date();
-		String dayOfTheWeek = sdf.format(d);
-		TextView weekDay = (TextView)findViewById(R.id.weekDay);
-		weekDay.setText(dayOfTheWeek);
+	
+		//Display WeekDay
+
+//		SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+//		Date d = new Date();
+//		String dayOfTheWeek = sdf.format(d);
+//		TextView weekDay = (TextView)findViewById(R.id.weekDay);
+//		weekDay.setText(dayOfTheWeek);
 		return true;
 		
 	}
+	
+	
+	
+	
 	   public class MyAdapter extends ArrayAdapter<String>{
 	    	 
 	        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
@@ -189,7 +205,7 @@ public class Home extends Activity {
 			@Override
 			public void onClick(View v) 
 			{
-				Intent intent = new Intent(getApplicationContext(), CalendarView.class);	
+				Intent intent = new Intent(getApplicationContext(), CalendarViewClass.class);	
 				startActivity(intent); 
 			}
 		}); 
