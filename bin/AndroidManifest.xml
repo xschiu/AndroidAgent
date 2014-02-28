@@ -9,6 +9,15 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    
+    <!-- permission required to use Alarm Manager -->
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <!-- permission required to Send SMS -->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    
 
     <application
         android:allowBackup="true"
@@ -55,7 +64,7 @@
             android:label="@string/title_activity_tutorial" >
         </activity>
         <activity
-            android:name="com.va.androidagent.CalendarView"
+            android:name="com.va.androidagent.CalendarViewClass"
             android:label="@string/title_activity_calendar_view" >
         </activity>
         <activity
@@ -74,6 +83,9 @@
             android:name="com.va.androidagent.RecordTutorial"
             android:label="@string/title_activity_record_tutorial" >
         </activity>
+        
+        <!-- Register the Alarm Receiver -->
+    	<receiver android:name=".AlarmReceiver"/> 
     </application>
 
 </manifest>

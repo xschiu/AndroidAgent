@@ -18,6 +18,7 @@ import android.content.Intent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,15 +39,53 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Home extends Activity {
+	
+	//to receive message from AlarmReceiver class 
+
+	private String memberFieldString;
+	
+	//Variabels
 	String[] strings = {"Excitement","Arousal","Pleasure","Contentment","Sleepiness","Depression","Misery","Distress","Neutral"};
 	int arr_images[] = { R.drawable.excitement, R.drawable.arousal,R.drawable.pleasure, R.drawable.contentment, R.drawable.sleepy, R.drawable.depression, R.drawable.misery, R.drawable.distress, R.drawable.neutral};
 	String[] weather = {"Rainning","Sunny","Thunder","Cloudy"};
 	int arr_weather[] = {R.drawable.raining, R.drawable.sunny, R.drawable.thunder, R.drawable.cloudy};
 	int arr_location[] = {R.drawable.livingroom, R.drawable.bathroom, R.drawable.bedroom, R.drawable.kitchen};
-	
+	String testStr = "testtest";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+	
+		 //weather spinner
+//      Spinner weatherSpinner = (Spinner)findViewById(R.id.weatherSpinner);
+//      weatherSpinner.setAdapter(new WeatherAdapter(Home.this, R.layout.weather, strings));
+      
+      
+      
+      //fragment working code
+//      MyFragment frag = new MyFragment();
+//      FragmentManager manager = getFragmentManager();
+//      FragmentTransaction transaction= manager.beginTransaction();
+//      transaction.add(R.id.my_layout,frag,"vivzFragment");
+//      transaction.commit();
+      
+    
+      
+	     // We get the ListView component from the layout
+	    // ListView lv = (ListView) findViewById(R.id.listView1);
+	     
+	     // This is a simple adapter that accepts as parameter
+	     // Context
+	     // Data list
+	     // The row layout that is used during the row creation
+	     // The keys used to retrieve the data
+	     // The View id used to show the data. The key number and the view id must match
+	    // simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
+	  //   SimpleAdapter simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
+	   //  lv.setAdapter(simpleAdpt);
+		 
+//		 TextView tvHeading = (TextView) findViewById(R.id.titleHeading);
+//		 tvHeading.setText("Add New Transaction");
+	
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
@@ -71,16 +111,7 @@ public class Home extends Activity {
 		//mood spinner
 		Spinner mySpinner = (Spinner)findViewById(R.id.emotionSpinner);
         mySpinner.setAdapter(new MyAdapter(Home.this, R.layout.row, strings));
-		
-        //weather spinner
-//        Spinner weatherSpinner = (Spinner)findViewById(R.id.weatherSpinner);
-//        weatherSpinner.setAdapter(new WeatherAdapter(Home.this, R.layout.weather, strings));
-        
-        MyFragment frag = new MyFragment();
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction= manager.beginTransaction();
-        transaction.add(R.id.my_layout,frag,"vivzFragment");
-        transaction.commit();
+    
         
 		this.chatButton();
 		this.sendEmail();
@@ -89,25 +120,33 @@ public class Home extends Activity {
 		this.meButton();
 		//this.listView();
 		
-		 initList();
-	     // We get the ListView component from the layout
-	    // ListView lv = (ListView) findViewById(R.id.listView1);
-	     
-	     // This is a simple adapter that accepts as parameter
-	     // Context
-	     // Data list
-	     // The row layout that is used during the row creation
-	     // The keys used to retrieve the data
-	     // The View id used to show the data. The key number and the view id must match
-	    // simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
-	  //   SimpleAdapter simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
-	   //  lv.setAdapter(simpleAdpt);
+		initList();
 		 
-//		 TextView tvHeading = (TextView) findViewById(R.id.titleHeading);
-//		 tvHeading.setText("Add New Transaction");
-
+		
 		
 	}
+	
+	@Override
+    protected void onResume() {
+		String initialMessage = "The weather looks good today";
+		super.onResume();
+		TextView initialText = new TextView(this);
+		initialText = (TextView)findViewById(R.id.butlerMessageTxt);
+		initialText.setText(initialMessage);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("message");
+
+        if (message != null && !message.isEmpty()) {
+        	TextView textView = new TextView(this);
+    		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+    		textView.setText(message);
+    		
+        }
+        
+		
+		
+	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -142,6 +181,7 @@ public class Home extends Activity {
 	
 	   public class MyAdapter extends ArrayAdapter<String>{
 	    	 
+		   
 	        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
 	            super(context, textViewResourceId, objects);
 	        }
@@ -153,15 +193,28 @@ public class Home extends Activity {
 	 
 	        @Override
 	        public View getView(int position, View convertView, ViewGroup parent) {
+	        	
 	            return getCustomView(position, convertView, parent);
 	        }
 	 
 	        public View getCustomView(int position, View convertView, ViewGroup parent) {
 	 
+	        	
+	        //change TextView label to label1 & delete the gridView from on Create, add spinner back
+	        	//
+	            
 	            LayoutInflater inflater=getLayoutInflater();
 	            View row=inflater.inflate(R.layout.row, parent, false);
-	            TextView label=(TextView)row.findViewById(R.id.mood);
-		   		label.setText(strings[position]);
+	            
+	            GridView label=(GridView)row.findViewById(R.id.grid);
+	            
+	        	ArrayAdapter ad=new ArrayAdapter(Home.this,R.layout.row,R.id.mood,strings);
+	            label.setAdapter(ad);
+
+	            
+	            
+	            TextView label1=(TextView)row.findViewById(R.id.mood);
+		   		label1.setText(strings[position]);
 	
 	            ImageView icon=(ImageView)row.findViewById(R.id.image1);
 	            icon.setImageResource(arr_images[position]);

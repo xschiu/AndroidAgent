@@ -23,7 +23,6 @@ public class FrameAnimationActivity extends Activity {
 		animate();
 		greeting();
 		this.goToHome();
-		
 	}
 	
 	public void goToHome()

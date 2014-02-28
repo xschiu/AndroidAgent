@@ -12,6 +12,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:layout_alignParentLeft="true"
@@ -33,7 +34,8 @@
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/weatherImage"
             android:layout_marginLeft="17dp" />
-
+        
+       
         <Spinner
             android:id="@+id/emotionSpinner"
             android:layout_width="120dp"
@@ -42,122 +44,12 @@
             android:layout_toRightOf="@+id/analogClock1"
             android:layout_marginLeft="13dp" />
 
-        <!--
-            <TextView
-                android:id="@+id/txtLocation"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/cell_shape"
-                android:padding="5dp"
-                android:text="Location"
-                android:textAppearance="?android:attr/textAppearanceMedium" >
-            </TextView>
-
-            <TextView
-                android:id="@+id/txtActivity"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/cell_shape"
-                android:padding="5dp"
-                android:text="Activity"
-                android:textAppearance="?android:attr/textAppearanceMedium" >
-            </TextView>
-
-            <TextView
-                android:id="@+id/txtMotion"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/cell_shape"
-                android:padding="5dp"
-                android:text="Motion"
-                android:textAppearance="?android:attr/textAppearanceMedium" >
-            </TextView>
-        -->
-
-
-        <!--
-                 <Spinner
-		        android:id="@+id/weatherSpinner"
-		        android:layout_width="80dp"
-		        android:layout_height="80dp"
-		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/txtTemp"
-		        android:layout_marginTop="20dp"
-		        android:background="@drawable/cloudy" />
-        -->
-
-        <!-- <TextView
-            android:id="@+id/todayDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="25dp" /> -->
-
-       <!--  <TextView
-            android:id="@+id/weekDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/todayDate"
-            android:layout_alignTop="@+id/todayDate"
-            android:layout_marginLeft="0dp"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="25dp" /> -->
-
-        <!--
-                 <DigitalClock
-                android:id="@+id/digitalClock1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DigitalClock" 
-                android:textSize="25dp"
-                android:layout_alignLeft="@+id/weekDay"
-                android:layout_marginLeft="30dp"
-                />
-        -->
-
-
-        <!--
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_width="match_parent"
-        android:layout_height="640dp"
-        android:layout_alignBottom="@+id/tabview"
-        android:layout_alignLeft="@+id/tabview"
-        android:layout_marginBottom="58dp" >
-    </ListView>
-        -->
-
-       
-        
-        
-<!--         <TextView
-            android:id="@+id/txtWeather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="480dp"
-            android:text="Sunny"
-            android:textAppearance="?android:attr/textAppearanceLarge" /> -->
     </LinearLayout>
-
-    <!--
-         <fragment
-        android:id="@+id/smartButler"
-        android:name="android.app.DialogFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="160dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true" 
-        android:background="@drawable/black"/>
-    -->
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
-        android:layout_height="400dp"
+        android:layout_height="250dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/linearLayout1"
 >
@@ -255,5 +147,30 @@
         android:layout_alignRight="@+id/calendarBtn"
         android:layout_marginRight="20dp"
         android:background="@drawable/chat" />
+    
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="#ffffff"
+        android:layout_below="@+id/linearLayout2"
+        
+        
+	>
+
+        <TextView
+            android:id="@+id/butlerMessageTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" 
+          
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>
+
+
+
+     

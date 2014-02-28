@@ -4,6 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
     
+  <GridView
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:id="@+id/grid"
+		    android:numColumns="3"
+	          
+	    />
+	         
     <ImageView
          android:id="@+id/image1"
          android:layout_width="50dp"
@@ -24,8 +32,6 @@
          android:layout_marginLeft="5dip"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"/>
-    
-    
     
 
 </LinearLayout>
