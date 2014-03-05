@@ -110,6 +110,5 @@
         android:layout_toRightOf="@+id/edit_name"
         android:src="@drawable/android2" />
 
-    	android:onclick="startAnimation"
-
+   
 </RelativeLayout>

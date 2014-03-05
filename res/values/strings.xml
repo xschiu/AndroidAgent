@@ -46,5 +46,9 @@
     <string name="title_activity_butler">Butler</string>
     <string name="title_activity_notification">Notification</string>
     <string name="title_activity_record_tutorial">RecordTutorial</string>
+    
+    <string name="hello">Custom Spinner</string>
+     <string name="defaultText">  Select your Company  </string>
+
 
 </resources>

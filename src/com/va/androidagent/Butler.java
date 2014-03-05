@@ -1,6 +1,6 @@
 package com.va.androidagent;
 
-import com.va.androidagent.Butler.MyAdapter;
+//import com.va.androidagent.Butler.MyAdapter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -35,7 +35,7 @@ public class Butler extends Activity {
 		// Apply the adapter to the spinner
 		//mySpinner.setAdapter(adapter);
       
-	   mySpinner.setAdapter(new MyAdapter(Butler.this, R.layout.row, strings));
+//	   mySpinner.setAdapter(new MyAdapter(Butler.this, R.layout.row, strings));
     
 	    
         this.sendButton();
@@ -48,36 +48,36 @@ public class Butler extends Activity {
 		return true;
 	}
 	
-	public class MyAdapter extends ArrayAdapter<String>{
-
-        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
-            super(context, textViewResourceId, objects);
-        }
- 
-        @Override
-        public View getDropDownView(int position, View convertView,ViewGroup parent) {
-            return getCustomView(position, convertView, parent);
-        }
- 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            return getCustomView(position, convertView, parent);
-        }
- 
-        public View getCustomView(int position, View convertView, ViewGroup parent) {
- 
-            LayoutInflater inflater=getLayoutInflater();
-            View row=inflater.inflate(R.layout.row, parent, false);
-            TextView label=(TextView)row.findViewById(R.id.mood);
-            label.setText(strings[position]);
- 
-            ImageView icon=(ImageView)row.findViewById(R.id.image1);
-            icon.setImageResource(arr_images[position]);
- 
-            return row;
-        
-        }   
-   }
+//	public class MyAdapter extends ArrayAdapter<String>{
+//
+//        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
+//            super(context, textViewResourceId, objects);
+//        }
+// 
+//        @Override
+//        public View getDropDownView(int position, View convertView,ViewGroup parent) {
+//            return getCustomView(position, convertView, parent);
+//        }
+// 
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent) {
+//            return getCustomView(position, convertView, parent);
+//        }
+// 
+//        public View getCustomView(int position, View convertView, ViewGroup parent) {
+// 
+////            LayoutInflater inflater=getLayoutInflater();
+////            View row=inflater.inflate(R.layout.row, parent, false);
+////            TextView label=(TextView)row.findViewById(R.id.mood);
+////            label.setText(strings[position]);
+//// 
+////            ImageView icon=(ImageView)row.findViewById(R.id.image1);
+////            icon.setImageResource(arr_images[position]);
+// 
+////            return row;
+//        
+//        }   
+//   }
     
    private void sendButton()
   {

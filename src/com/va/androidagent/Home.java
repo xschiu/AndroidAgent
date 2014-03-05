@@ -15,6 +15,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -39,22 +41,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Home extends Activity {
-	
+
 	//to receive message from AlarmReceiver class 
 
 	private String memberFieldString;
-	
+
 	//Variabels
 	String[] strings = {"Excitement","Arousal","Pleasure","Contentment","Sleepiness","Depression","Misery","Distress","Neutral"};
-	int arr_images[] = { R.drawable.excitement, R.drawable.arousal,R.drawable.pleasure, R.drawable.contentment, R.drawable.sleepy, R.drawable.depression, R.drawable.misery, R.drawable.distress, R.drawable.neutral};
+	int arr_images[] = { R.drawable.moodicon1, R.drawable.moodicon2,R.drawable.moodicon3, R.drawable.moodicon4, R.drawable.moodicon5, R.drawable.moodicon6, R.drawable.moodicon7, R.drawable.moodicon8, R.drawable.moodicon9};
 	String[] weather = {"Rainning","Sunny","Thunder","Cloudy"};
 	int arr_weather[] = {R.drawable.raining, R.drawable.sunny, R.drawable.thunder, R.drawable.cloudy};
 	int arr_location[] = {R.drawable.livingroom, R.drawable.bathroom, R.drawable.bedroom, R.drawable.kitchen};
 	String testStr = "testtest";
-	
+	String[] grids = {"Excitement"};
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-	
+
 		 //weather spinner
 //      Spinner weatherSpinner = (Spinner)findViewById(R.id.weatherSpinner);
 //      weatherSpinner.setAdapter(new WeatherAdapter(Home.this, R.layout.weather, strings));
@@ -72,7 +75,7 @@ public class Home extends Activity {
       
 	     // We get the ListView component from the layout
 	    // ListView lv = (ListView) findViewById(R.id.listView1);
-	     
+
 	     // This is a simple adapter that accepts as parameter
 	     // Context
 	     // Data list
@@ -82,18 +85,18 @@ public class Home extends Activity {
 	    // simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
 	  //   SimpleAdapter simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
 	   //  lv.setAdapter(simpleAdpt);
-		 
+
 //		 TextView tvHeading = (TextView) findViewById(R.id.titleHeading);
 //		 tvHeading.setText("Add New Transaction");
-	
-		
+
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		
+
 		//change background of layout periodically
 		final RelativeLayout locationImage = (RelativeLayout) findViewById(R.id.my_layout);
 		final Handler handler = new Handler();
-		
+
 		Runnable runnable = new Runnable()
 		{
 			int i = 0;
@@ -103,14 +106,14 @@ public class Home extends Activity {
 					i++;
 				if(i>arr_location.length-1) { i=0; }
 				handler.postDelayed(this, 5000); //for interval
-				
+
 			}
 		};
 			handler.postDelayed(runnable, 1000); //for initial delay
-		
+
 		//mood spinner
 		Spinner mySpinner = (Spinner)findViewById(R.id.emotionSpinner);
-        mySpinner.setAdapter(new MyAdapter(Home.this, R.layout.row, strings));
+        mySpinner.setAdapter(new MyAdapter(Home.this, R.layout.row, grids));
     
         
 		this.chatButton();
@@ -119,13 +122,13 @@ public class Home extends Activity {
 		this.calendarButton();
 		this.meButton();
 		//this.listView();
-		
+
 		initList();
-		 
-		
-		
+
+
+
 	}
-	
+
 	@Override
     protected void onResume() {
 		String initialMessage = "The weather looks good today";
@@ -143,28 +146,28 @@ public class Home extends Activity {
     		
         }
         
-		
-		
+
+
 	}
-	
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home, menu);
-		
+
 		//display date
 //		String currentDateString = DateFormat.getDateInstance().format(new Date());
 //		TextView todayDate = (TextView)findViewById(R.id.todayDate);
 //		todayDate.setText(currentDateString);
-		
+
 		//Toast.makeText(this, currentDateTimeString, Toast.LENGTH_SHORT).show();
 		//TextView todayDate = new TextView(this);
 		// textView is the TextView view that; should display it
-		
-		
 
-	
+
+
+
 		//Display WeekDay
 
 //		SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
@@ -173,57 +176,59 @@ public class Home extends Activity {
 //		TextView weekDay = (TextView)findViewById(R.id.weekDay);
 //		weekDay.setText(dayOfTheWeek);
 		return true;
-		
+
 	}
-	
-	
-	
-	
+
+
+
+
 	   public class MyAdapter extends ArrayAdapter<String>{
-	    	 
-		   
+
+
 	        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
 	            super(context, textViewResourceId, objects);
 	        }
-	 
+
 	        @Override
 	        public View getDropDownView(int position, View convertView,ViewGroup parent) {
 	            return getCustomView(position, convertView, parent);
 	        }
-	 
+
 	        @Override
 	        public View getView(int position, View convertView, ViewGroup parent) {
-	        	
+
 	            return getCustomView(position, convertView, parent);
 	        }
-	 
+
 	        public View getCustomView(int position, View convertView, ViewGroup parent) {
-	 
-	        	
+
+
 	        //change TextView label to label1 & delete the gridView from on Create, add spinner back
 	        	//
-	            
+
 	            LayoutInflater inflater=getLayoutInflater();
 	            View row=inflater.inflate(R.layout.row, parent, false);
-	            
+
 	            GridView label=(GridView)row.findViewById(R.id.grid);
 	            
-	        	ArrayAdapter ad=new ArrayAdapter(Home.this,R.layout.row,R.id.mood,strings);
+	            
+	            ArrayAdapter ad=new ArrayAdapter(Home.this,R.layout.grid_view_item,R.id.mood,strings);
 	            label.setAdapter(ad);
 
-	            
-	            
-	            TextView label1=(TextView)row.findViewById(R.id.mood);
-		   		label1.setText(strings[position]);
-	
-	            ImageView icon=(ImageView)row.findViewById(R.id.image1);
-	            icon.setImageResource(arr_images[position]);
-	 
+//	            View gridView=inflater.inflate(R.layout.grid_view_item, parent, false);	
+//	            TextView label1=(TextView)gridView.findViewById(R.id.mood);
+//	            
+//		   		label1.setText(strings[position]);
+//		   		
+//		   		
+//	            ImageView icon=(ImageView)gridView.findViewById(R.id.image1);
+//	            icon.setImageResource(arr_images[position]);
+
 	            return row;
-	        
+
 	        }   
 	   }
-	   
+
 
 /*	private void listView()
 	{
@@ -233,9 +238,9 @@ public class Home extends Activity {
 		
 		
 	}*/
-	
-	
-	
+
+
+
 	private void chatButton()
 	{
 		ImageButton chat = (ImageButton)this.findViewById(R.id.chatBtn); 
@@ -249,7 +254,7 @@ public class Home extends Activity {
 			}
 		}); 
 	}
-	
+
 	private void calendarButton()
 	{
 		ImageButton calendar = (ImageButton)this.findViewById(R.id.calendarBtn); 
@@ -276,7 +281,7 @@ public class Home extends Activity {
 			}
 		}); 
 	}
-	
+
 	private void playButton()
 	{
 		ImageButton play = (ImageButton)this.findViewById(R.id.playBtn); 
@@ -290,7 +295,7 @@ public class Home extends Activity {
 			}
 		}); 
 	}
-	
+
 	private void meButton()
 	{
 		ImageButton me = (ImageButton)this.findViewById(R.id.meBtn); 
@@ -304,9 +309,9 @@ public class Home extends Activity {
 			}
 		}); 
 	}
-	
-	
-	
+
+
+
 	// The data to show
 	List<Map<String, String>> planetsList = new ArrayList<Map<String,String>>();
 	   private void initList() {
@@ -325,9 +330,9 @@ public class Home extends Activity {
 	    planet.put(key, name);
 	    return planet;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

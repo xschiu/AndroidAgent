@@ -35,14 +35,15 @@
             android:layout_toRightOf="@+id/weatherImage"
             android:layout_marginLeft="17dp" />
         
-       
         <Spinner
             android:id="@+id/emotionSpinner"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/analogClock1"
-            android:layout_marginLeft="13dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/analogClock1" />
 
     </LinearLayout>
 
