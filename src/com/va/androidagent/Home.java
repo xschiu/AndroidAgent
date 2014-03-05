@@ -20,12 +20,14 @@ import android.graphics.drawable.Drawable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -184,9 +186,10 @@ public class Home extends Activity {
 
 	   public class MyAdapter extends ArrayAdapter<String>{
 
-
+		   private Context context;
 	        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
 	            super(context, textViewResourceId, objects);
+	            this.context=context;
 	        }
 
 	        @Override
@@ -197,32 +200,39 @@ public class Home extends Activity {
 	        @Override
 	        public View getView(int position, View convertView, ViewGroup parent) {
 
-	            return getCustomView(position, convertView, parent);
+	        	// TODO Auto-generated method stub
+		        TextView label=(TextView)convertView;
+
+		          if (convertView==null) {
+		            convertView=new TextView(context);
+		            label=(TextView)convertView;
+		          }
+
+		          label.setText(strings[position]);
+
+		          return(convertView);
+
 	        }
 
 	        public View getCustomView(int position, View convertView, ViewGroup parent) {
 
 
-	        //change TextView label to label1 & delete the gridView from on Create, add spinner back
-	        	//
+	        	 //return super.getView(position, convertView, parent);
 
-	            LayoutInflater inflater=getLayoutInflater();
-	            View row=inflater.inflate(R.layout.row, parent, false);
-
-	            GridView label=(GridView)row.findViewById(R.id.grid);
-	            
-	            
-	            ArrayAdapter ad=new ArrayAdapter(Home.this,R.layout.grid_view_item,R.id.mood,strings);
-	            label.setAdapter(ad);
-
-//	            View gridView=inflater.inflate(R.layout.grid_view_item, parent, false);	
-//	            TextView label1=(TextView)gridView.findViewById(R.id.mood);
-//	            
-//		   		label1.setText(strings[position]);
-//		   		
-//		   		
-//	            ImageView icon=(ImageView)gridView.findViewById(R.id.image1);
-//	            icon.setImageResource(arr_images[position]);
+		        LayoutInflater inflater=getLayoutInflater();
+		        View row=inflater.inflate(R.layout.row, parent, false);
+		        
+		       
+		        CustomGrid adapter = new CustomGrid(Home.this, strings, arr_images);
+		        GridView grid=(GridView)row.findViewById(R.id.grid);
+		        grid.setAdapter(adapter);
+		        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		                    @Override
+		                    public void onItemClick(AdapterView<?> parent, View view,
+		                                            int position, long id) {
+		                        Toast.makeText(Home.this, "You Clicked at " +strings[+ position], Toast.LENGTH_SHORT).show();
+		                    }
+		                });
 
 	            return row;
 
