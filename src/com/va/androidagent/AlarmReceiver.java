@@ -31,11 +31,11 @@ public class AlarmReceiver extends BroadcastReceiver{
 		i.putExtra("message", reminderMessage);
 		context.startActivity(i);
 	
-//        String phoneNumberReciver="+6582015534";// phone number to which SMS to be send
-//        String message="Your mother is very excited at 7pm earlier on, you may want to check her out";// message to send
-//		
-//        SmsManager sms = SmsManager.getDefault(); 
-//        sms.sendTextMessage(phoneNumberReciver, null, message, null, null);
+        String phoneNumberReciver="+6582015534";// phone number to which SMS to be send
+        String message="Your mother is very excited at 7pm earlier on, you may want to check her out";// message to send
+		
+        SmsManager sms = SmsManager.getDefault(); 
+        sms.sendTextMessage(phoneNumberReciver, null, message, null, null);
         // Show the toast  like in above screen shot
         Toast.makeText(context, "Alarm Triggered and SMS Sent", Toast.LENGTH_LONG).show();
         

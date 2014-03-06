@@ -12,26 +12,25 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp" >
+        android:orientation="horizontal" >
 
         <ImageView
             android:id="@+id/weatherImage"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:background="@drawable/cloudy" />
+            android:background="@drawable/cloudy"
+             />
 
         <AnalogClock
             android:id="@+id/analogClock1"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignParentBottom="true"
+
             android:layout_toRightOf="@+id/weatherImage"
             android:layout_marginLeft="17dp" />
         
@@ -39,7 +38,6 @@
             android:id="@+id/emotionSpinner"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="13dp"
@@ -169,6 +167,17 @@
             />
 
     </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/todayDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignLeft="@+id/playBtn"
+        android:text="8 March 2014 Thursday 9.30am"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
 

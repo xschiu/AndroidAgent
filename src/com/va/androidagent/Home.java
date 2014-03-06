@@ -21,6 +21,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -49,7 +50,7 @@ public class Home extends Activity {
 	private String memberFieldString;
 
 	//Variabels
-	String[] strings = {"Excitement","Arousal","Pleasure","Contentment","Sleepiness","Depression","Misery","Distress","Neutral"};
+	String[] strings = {"Distress","Arousal","Excitement","Misery","Neutral","Pleasure","Depression","Sleepy","Contentment"};
 	int arr_images[] = { R.drawable.moodicon1, R.drawable.moodicon2,R.drawable.moodicon3, R.drawable.moodicon4, R.drawable.moodicon5, R.drawable.moodicon6, R.drawable.moodicon7, R.drawable.moodicon8, R.drawable.moodicon9};
 	String[] weather = {"Rainning","Sunny","Thunder","Cloudy"};
 	int arr_weather[] = {R.drawable.raining, R.drawable.sunny, R.drawable.thunder, R.drawable.cloudy};
@@ -120,13 +121,10 @@ public class Home extends Activity {
         
 		this.chatButton();
 		this.sendEmail();
-		this.playButton();
+//		this.playButton();
 		this.calendarButton();
 		this.meButton();
 		//this.listView();
-
-		initList();
-
 
 
 	}
@@ -135,6 +133,7 @@ public class Home extends Activity {
     protected void onResume() {
 		String initialMessage = "The weather looks good today";
 		super.onResume();
+		
 		TextView initialText = new TextView(this);
 		initialText = (TextView)findViewById(R.id.butlerMessageTxt);
 		initialText.setText(initialMessage);
@@ -158,10 +157,15 @@ public class Home extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home, menu);
 
-		//display date
-//		String currentDateString = DateFormat.getDateInstance().format(new Date());
-//		TextView todayDate = (TextView)findViewById(R.id.todayDate);
-//		todayDate.setText(currentDateString);
+		String currentDateString = DateFormat.getDateInstance().format(new Date());
+		String currentTimeString = new SimpleDateFormat("HH:mm:ss").format(new Date());
+		SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+		Date d = new Date();
+		String dayOfTheWeek = sdf.format(d);
+		// textView is the TextView view that should display it
+		TextView todayDate = (TextView)findViewById(R.id.todayDate);
+		
+		todayDate.setText(currentDateString + "  " + currentTimeString + "  "+ dayOfTheWeek);
 
 		//Toast.makeText(this, currentDateTimeString, Toast.LENGTH_SHORT).show();
 		//TextView todayDate = new TextView(this);
@@ -201,16 +205,19 @@ public class Home extends Activity {
 	        public View getView(int position, View convertView, ViewGroup parent) {
 
 	        	// TODO Auto-generated method stub
-		        TextView label=(TextView)convertView;
+//		        TextView label=(TextView)convertView;
+//
+//		          if (convertView==null) {
+//		            convertView=new TextView(context);
+//		            label=(TextView)convertView;
+//		          }
+//
+//		          label.setText(strings[position]);
+//
+//		          return(convertView);
+	        	
 
-		          if (convertView==null) {
-		            convertView=new TextView(context);
-		            label=(TextView)convertView;
-		          }
-
-		          label.setText(strings[position]);
-
-		          return(convertView);
+		          return getCustomView(position, convertView, parent);
 
 	        }
 
@@ -230,7 +237,9 @@ public class Home extends Activity {
 		                    @Override
 		                    public void onItemClick(AdapterView<?> parent, View view,
 		                                            int position, long id) {
-		                        Toast.makeText(Home.this, "You Clicked at " +strings[+ position], Toast.LENGTH_SHORT).show();
+		                        Toast.makeText(Home.this, "You are feeling" +strings[+ position], Toast.LENGTH_SHORT).show();
+		                      
+		                        
 		                    }
 		                });
 
@@ -292,19 +301,19 @@ public class Home extends Activity {
 		}); 
 	}
 
-	private void playButton()
-	{
-		ImageButton play = (ImageButton)this.findViewById(R.id.playBtn); 
-		play.setOnClickListener(new ImageButton.OnClickListener()
-		{ 
-			@Override
-			public void onClick(View v) 
-			{
-				Intent intent = new Intent(getApplicationContext(), Play.class);	
-				startActivity(intent); 
-			}
-		}); 
-	}
+//	private void playButton()
+//	{
+//		ImageButton play = (ImageButton)this.findViewById(R.id.playBtn); 
+//		play.setOnClickListener(new ImageButton.OnClickListener()
+//		{ 
+//			@Override
+//			public void onClick(View v) 
+//			{
+//				Intent intent = new Intent(getApplicationContext(), Play.class);	
+//				startActivity(intent); 
+//			}
+//		}); 
+//	}
 
 	private void meButton()
 	{
@@ -320,26 +329,6 @@ public class Home extends Activity {
 		}); 
 	}
 
-
-
-	// The data to show
-	List<Map<String, String>> planetsList = new ArrayList<Map<String,String>>();
-	   private void initList() {
-	    // We populate the planets
-
-	    planetsList.add(createPlanet("planet", "Chat with Me"));
-	    planetsList.add(createPlanet("planet", "Going Out"));
-	    planetsList.add(createPlanet("planet", "Move It"));
-	    planetsList.add(createPlanet("planet", "Medicine"));
-	    planetsList.add(createPlanet("planet", "Function 5"));
-	    planetsList.add(createPlanet("planet", "Function 6"));
-	    planetsList.add(createPlanet("planet", "Function 7"));
-	}
-	private HashMap<String, String> createPlanet(String key, String name) {
-	    HashMap<String, String> planet = new HashMap<String, String>();
-	    planet.put(key, name);
-	    return planet;
-	}
 
 
 

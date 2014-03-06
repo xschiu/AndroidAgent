@@ -40,7 +40,7 @@
     </string-array>
 
     <string name="title_activity_email">Email</string>
-    <string name="title_activity_tutorial">Tutorial</string>
+<!--     <string name="title_activity_tutorial">Tutorial</string> -->
     <string name="title_activity_calendar_view">CalendarView</string>
     <string name="title_activity_calendar">Calendar</string>
     <string name="title_activity_butler">Butler</string>

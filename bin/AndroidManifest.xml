@@ -59,10 +59,10 @@
             android:name="com.va.androidagent.Email"
             android:label="@string/title_activity_email" >
         </activity>
-        <activity
+        <!-- <activity
             android:name="com.va.androidagent.Tutorial"
             android:label="@string/title_activity_tutorial" >
-        </activity>
+        </activity> -->
         <activity
             android:name="com.va.androidagent.CalendarViewClass"
             android:label="@string/title_activity_calendar_view" >
