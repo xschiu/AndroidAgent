@@ -12,11 +12,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:background="#1A000000">
 
         <ImageView
             android:id="@+id/weatherImage"
@@ -30,18 +31,25 @@
             android:id="@+id/analogClock1"
             android:layout_width="100dp"
             android:layout_height="100dp"
-
             android:layout_toRightOf="@+id/weatherImage"
             android:layout_marginLeft="17dp" />
         
-        <Spinner
+        <ImageView
+	        android:id="@+id/gridSpinner"
+	        android:layout_width="100dp"
+	        android:layout_height="100dp"
+	        android:layout_toRightOf="@+id/analogClock1"
+	        android:layout_marginLeft="17dp"
+	        android:background="@drawable/moodicon3" />
+        
+        <!-- <Spinner
             android:id="@+id/emotionSpinner"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="13dp"
-            android:layout_toRightOf="@+id/analogClock1" />
+            android:layout_toRightOf="@+id/analogClock1" /> -->
 
     </LinearLayout>
 
@@ -53,15 +61,15 @@
         android:layout_below="@+id/linearLayout1"
 >
 
-
-            <ImageButton
-                android:id="@+id/meBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/me" />
+			<ImageButton
+			        android:id="@+id/playBtn"
+			        android:layout_width="60dp"
+			        android:layout_height="60dp"
+			        android:layout_alignParentLeft="true"
+			        android:layout_marginLeft="10dp"
+    	            android:layout_marginTop="20dp"
+			        android:background="@drawable/play" />
+            
 
             <ImageButton
                 android:id="@+id/socialize"
@@ -91,7 +99,17 @@
             android:layout_marginTop="80dp"
             android:layout_marginLeft="5dp"
             android:text="28 °C"
+            android:textColor="@drawable/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+	 
+	 <ImageButton
+                android:id="@+id/meBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginTop="270dp"                
+                android:background="@drawable/me" />
     
     <ImageButton
         android:id="@+id/mapBtn"
@@ -111,14 +129,7 @@
         android:layout_marginLeft="14dp"
         android:background="@drawable/email" />
 
-    <ImageButton
-        android:id="@+id/playBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="270dp"
-        android:background="@drawable/play" />
+    
 
     <ImageButton
         android:id="@+id/calendarBtn"
@@ -168,15 +179,15 @@
 
     </LinearLayout>
 
-
+	
 
     <TextView
         android:id="@+id/todayDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
          android:layout_alignBottom="@+id/linearLayout1"
-        android:layout_alignLeft="@+id/playBtn"
-        android:text="8 March 2014 Thursday 9.30am"
+        android:layout_alignLeft="@+id/meBtn"
+        android:textColor="@drawable/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

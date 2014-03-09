@@ -58,6 +58,7 @@ public class Home extends Activity {
 	String testStr = "testtest";
 	String[] grids = {"Excitement"};
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -115,15 +116,17 @@ public class Home extends Activity {
 			handler.postDelayed(runnable, 1000); //for initial delay
 
 		//mood spinner
-		Spinner mySpinner = (Spinner)findViewById(R.id.emotionSpinner);
-        mySpinner.setAdapter(new MyAdapter(Home.this, R.layout.row, grids));
-    
+//		Spinner mySpinner = (Spinner)findViewById(R.id.emotionSpinner);
+//        mySpinner.setAdapter(new MyAdapter(Home.this, R.layout.row, grids));
+//    
         
+		
 		this.chatButton();
 		this.sendEmail();
 //		this.playButton();
 		this.calendarButton();
 		this.meButton();
+		this.gridSpinner();
 		//this.listView();
 
 
@@ -204,20 +207,22 @@ public class Home extends Activity {
 	        @Override
 	        public View getView(int position, View convertView, ViewGroup parent) {
 
-	        	// TODO Auto-generated method stub
-//		        TextView label=(TextView)convertView;
-//
-//		          if (convertView==null) {
-//		            convertView=new TextView(context);
-//		            label=(TextView)convertView;
-//		          }
-//
-//		          label.setText(strings[position]);
-//
-//		          return(convertView);
+//	        	 TODO Auto-generated method stub
+	     
+	        	
+		        TextView label=(TextView)convertView;
+
+		          if (convertView==null) {
+		            convertView=new TextView(context);
+		            label=(TextView)convertView;
+		          }
+		        
+		          label.setText(strings[position]);
+
+		          return(convertView);
 	        	
 
-		          return getCustomView(position, convertView, parent);
+//		          return getCustomView(position, convertView, parent);
 
 	        }
 
@@ -233,16 +238,8 @@ public class Home extends Activity {
 		        CustomGrid adapter = new CustomGrid(Home.this, strings, arr_images);
 		        GridView grid=(GridView)row.findViewById(R.id.grid);
 		        grid.setAdapter(adapter);
-		        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-		                    @Override
-		                    public void onItemClick(AdapterView<?> parent, View view,
-		                                            int position, long id) {
-		                        Toast.makeText(Home.this, "You are feeling" +strings[+ position], Toast.LENGTH_SHORT).show();
-		                      
-		                        
-		                    }
-		                });
-
+		        
+		      
 	            return row;
 
 	        }   
@@ -259,6 +256,25 @@ public class Home extends Activity {
 	}*/
 
 
+	   
+	   private void gridSpinner()
+		{
+			ImageView gridSpinner = (ImageView)this.findViewById(R.id.gridSpinner); 
+			gridSpinner.setOnClickListener(new ImageView.OnClickListener()
+			{ 
+				@Override
+				public void onClick(View v) 
+				{
+					
+					 MyFragment frag = new MyFragment();
+				     FragmentManager manager = getFragmentManager();
+				     FragmentTransaction transaction= manager.beginTransaction();
+				     transaction.add(R.id.my_layout,frag,"vivzFragment");
+				     transaction.commit();
+				}
+			}); 
+		}
+   
 
 	private void chatButton()
 	{
