@@ -24,6 +24,9 @@ public class MyFragment extends Fragment {
 	String[] strings = {"Distress","Arousal","Excitement","Misery","Neutral","Pleasure","Depression","Sleepy","Contentment"};
 	int arr_images[] = { R.drawable.moodicon1, R.drawable.moodicon2,R.drawable.moodicon3, R.drawable.moodicon4, R.drawable.moodicon5, R.drawable.moodicon6, R.drawable.moodicon7, R.drawable.moodicon8, R.drawable.moodicon9};
 	int images=3;
+	
+	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstancesState) {
 		
@@ -90,15 +93,18 @@ public class MyFragment extends Fragment {
             }
                 
                 gridSpinner.setImageResource(images);
-               
                 
-//                getActivity().getFragmentManager().beginTransaction().remove(frag).commit();
+                FragmentManager manager = getFragmentManager();
+			    FragmentTransaction transaction= manager.beginTransaction();
+			    transaction.remove(manager.findFragmentByTag("vivzFragment")).commit();
+                
+         
+
             } 
         });
         
        
     }
-
 
 
 

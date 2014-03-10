@@ -48,6 +48,7 @@ public class Home extends Activity {
 	//to receive message from AlarmReceiver class 
 
 	private String memberFieldString;
+	
 
 	//Variabels
 	String[] strings = {"Distress","Arousal","Excitement","Misery","Neutral","Pleasure","Depression","Sleepy","Contentment"};
@@ -57,6 +58,7 @@ public class Home extends Activity {
 	int arr_location[] = {R.drawable.livingroom, R.drawable.bathroom, R.drawable.bedroom, R.drawable.kitchen};
 	String testStr = "testtest";
 	String[] grids = {"Excitement"};
+	int x = 0;
 
 	
 	@Override
@@ -259,18 +261,22 @@ public class Home extends Activity {
 	   
 	   private void gridSpinner()
 		{
+		   
 			ImageView gridSpinner = (ImageView)this.findViewById(R.id.gridSpinner); 
 			gridSpinner.setOnClickListener(new ImageView.OnClickListener()
 			{ 
 				@Override
 				public void onClick(View v) 
 				{
-					
-					 MyFragment frag = new MyFragment();
-				     FragmentManager manager = getFragmentManager();
-				     FragmentTransaction transaction= manager.beginTransaction();
-				     transaction.add(R.id.my_layout,frag,"vivzFragment");
-				     transaction.commit();
+					 
+					 
+					MyFragment frag = new MyFragment();
+					FragmentManager manager = getFragmentManager();
+					FragmentTransaction transaction= manager.beginTransaction();
+					transaction.add(R.id.my_layout,frag,"vivzFragment");
+					transaction.commit();
+				
+				     
 				}
 			}); 
 		}
