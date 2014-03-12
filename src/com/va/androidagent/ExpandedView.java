@@ -14,11 +14,8 @@ public class ExpandedView extends Fragment {
 		String fullMsg = "full message";
 	
 		View V = inflater.inflate(R.layout.expanded, container, false);
-		View expandedTextView = V.findViewById(R.id.expandedTxt);
-	    ((ExpandableTextView)expandedTextView).setText(fullMsg);
-//		View expandableTextView = expandedTextView.findViewById(R.id.fragmentTxt);
-//		((ExpandableTextView)expandableTextView).setText();
-		//return inflater.inflate(R.layout.smart_butler,container,false);
-		return expandedTextView;
+//		View expandedTextView = V.findViewById(R.id.expandedTxt);
+//	    ((ExpandableTextView)expandedTextView).setText(fullMsg);
+		return V;
 	}
 }

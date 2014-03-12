@@ -39,14 +39,6 @@ public class ExpandableTextView extends TextView {
                 trim = !trim;
                 setText();
                 requestFocusFromTouch();
-//            	Intent intent = new Intent(getActivity().getApplicationContext(), ExpandedView.class);	
-//				getActivity().startActivity(intent); 
-                
-//                ExpandedView expandedFrag = new ExpandedView();
-//                FragmentManager manager = getFragmentManager();
-//                FragmentTransaction transaction= manager.beginTransaction();
-//                transaction.add(R.id.my_layout,expandedFrag,"expandedFragment");
-//                transaction.commit();
             	
             }
         });

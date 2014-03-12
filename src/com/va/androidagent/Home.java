@@ -59,6 +59,7 @@ public class Home extends Activity {
 	String testStr = "testtest";
 	String[] grids = {"Excitement"};
 	int x = 0;
+	int i = 0;
 
 	
 	@Override
@@ -129,6 +130,7 @@ public class Home extends Activity {
 		this.calendarButton();
 		this.meButton();
 		this.gridSpinner();
+		this.expandButton();
 		//this.listView();
 
 
@@ -136,7 +138,7 @@ public class Home extends Activity {
 
 	@Override
     protected void onResume() {
-		String initialMessage = "The weather looks good today";
+		String initialMessage = "Dear Sir, there is an Event at Serangoon CC tonight. Are you going?";
 		super.onResume();
 		
 		TextView initialText = new TextView(this);
@@ -170,7 +172,7 @@ public class Home extends Activity {
 		// textView is the TextView view that should display it
 		TextView todayDate = (TextView)findViewById(R.id.todayDate);
 		
-		todayDate.setText(currentDateString + "  " + currentTimeString + "  "+ dayOfTheWeek);
+		todayDate.setText(currentDateString + " " + currentTimeString + " "+ dayOfTheWeek);
 
 		//Toast.makeText(this, currentDateTimeString, Toast.LENGTH_SHORT).show();
 		//TextView todayDate = new TextView(this);
@@ -350,7 +352,40 @@ public class Home extends Activity {
 			}
 		}); 
 	}
-
+	
+	private void expandButton()
+	{
+		ImageButton expand = (ImageButton)this.findViewById(R.id.expandBtn); 
+		expand.setOnClickListener(new ImageButton.OnClickListener()
+		{ 
+			@Override
+			public void onClick(View v) 
+			{
+				if (i==0){
+					ImageButton expand = (ImageButton)findViewById(R.id.expandBtn); 
+					expand.setBackgroundResource(R.drawable.buttonshrink);
+					i=1;
+					
+					ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
+					FragmentManager manager = getFragmentManager();
+					FragmentTransaction transaction= manager.beginTransaction();
+					transaction.add(R.id.my_layout,expandedView,"expandedView");
+					transaction.commit();
+				}
+				else{
+					ImageButton expand = (ImageButton)findViewById(R.id.expandBtn); 
+					expand.setBackgroundResource(R.drawable.buttonexpand);
+					i=0;
+					 
+	                FragmentManager manager = getFragmentManager();
+				    FragmentTransaction transaction= manager.beginTransaction();
+				    transaction.remove(manager.findFragmentByTag("expandedView")).commit();
+				}
+				
+				
+			}
+		}); 
+	}
 
 
 

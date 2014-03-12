@@ -158,36 +158,61 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/chat" />
     
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linearLayout3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:background="#ffffff"
-        android:layout_below="@+id/linearLayout2"
-        
-        
-	>
+        android:layout_alignParentBottom="true">
 
         <TextView
             android:id="@+id/butlerMessageTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge" 
-          
-            />
+        />
+        
+        <ImageButton
+			android:id="@+id/yesBtn"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/buttonyes"
+			android:layout_below="@+id/butlerMessageTxt"
+			android:layout_marginLeft="30dp" />
+        <ImageButton
+			android:id="@+id/cancelBtn"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/buttoncancel"
+			android:layout_toRightOf="@+id/yesBtn"
+			android:layout_marginLeft="75dp"
+			android:layout_below="@+id/butlerMessageTxt" />
+        
+        <ImageButton
+			android:id="@+id/expandBtn"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/buttonexpand"
+			android:layout_toRightOf="@+id/cancelBtn"
+			android:layout_marginLeft="75dp" 
+			android:layout_below="@+id/butlerMessageTxt"/>
+        
 
-    </LinearLayout>
+        
+    </RelativeLayout>
 
+	        
 	
 
     <TextView
         android:id="@+id/todayDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-         android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignBottom="@+id/linearLayout1"
         android:layout_alignLeft="@+id/meBtn"
         android:textColor="@drawable/white"
+        android:textSize="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
