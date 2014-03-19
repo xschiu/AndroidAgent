@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
@@ -36,46 +37,53 @@ public class CalendarViewClass extends Activity {
 	private static final int PROJECTION_ID_INDEX = 0;
 	private static final int PROJECTION_ACCOUNT_NAME_INDEX = 1;
 	private static final int PROJECTION_DISPLAY_NAME_INDEX = 2;
-		
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_view);
-        
-        
-        Intent intent = new Intent(Intent.ACTION_INSERT);
-		intent.setType("vnd.android.cursor.item/event");
-		intent.putExtra(Events.TITLE, "Learn Android");
-		intent.putExtra(Events.EVENT_LOCATION, "Home suit home");
-		intent.putExtra(Events.DESCRIPTION, "Download Examples");
+        long startMillis = 0; 
 
-		// Setting dates
-		int month;
-		int day;
-		int year;
-		GregorianCalendar gregorianCalendar=new GregorianCalendar(); 
-		month=gregorianCalendar.get(GregorianCalendar.MONTH);            
-		day= gregorianCalendar.get(GregorianCalendar.DAY_OF_MONTH);
-		year=gregorianCalendar.get(GregorianCalendar.YEAR);
-		
-		GregorianCalendar calDate = new GregorianCalendar(year, month, day);
-		intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
-				calDate.getTimeInMillis());
-		intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
-				calDate.getTimeInMillis());
-
-		// Make it a full day event
-		intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
-
-		// Make it a recurring Event
-		intent.putExtra(Events.RRULE,
-				"FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
-
-		// Making it private and shown as busy
-		intent.putExtra(Events.ACCESS_LEVEL, Events.ACCESS_PRIVATE);
-		intent.putExtra(Events.AVAILABILITY, Events.AVAILABILITY_BUSY);
-
-		startActivity(intent);
+        Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
+        builder.appendPath("time");
+        ContentUris.appendId(builder, startMillis);
+        Intent intent = new Intent(Intent.ACTION_VIEW)
+            .setData(builder.build());
+        startActivity(intent);
+                  
+//        Intent intent = new Intent(Intent.ACTION_EDIT);
+//		intent.setType("vnd.android.cursor.item/event");
+//		intent.putExtra(Events.TITLE, "Medicine Time");
+//		intent.putExtra(Events.EVENT_LOCATION, "Home sweet home");
+//		intent.putExtra(Events.DESCRIPTION, "After Meals");
+//
+//		// Setting dates
+//		int month;
+//		int day;
+//		int year;
+//		GregorianCalendar gregorianCalendar=new GregorianCalendar(); 
+//		month=gregorianCalendar.get(GregorianCalendar.MONTH);            
+//		day= gregorianCalendar.get(GregorianCalendar.DAY_OF_MONTH);
+//		year=gregorianCalendar.get(GregorianCalendar.YEAR);
+//		
+//		GregorianCalendar calDate = new GregorianCalendar(year, month, day);
+//		intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+//				calDate.getTimeInMillis());
+//		intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+//				calDate.getTimeInMillis());
+//
+//		// Make it a full day event
+//		intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+//
+//		// Make it a recurring Event
+//		intent.putExtra(Events.RRULE,
+//				"FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
+//
+//		// Making it private and shown as busy
+//		intent.putExtra(Events.ACCESS_LEVEL, Events.ACCESS_PRIVATE);
+//		intent.putExtra(Events.AVAILABILITY, Events.AVAILABILITY_BUSY);
+//
+//		startActivity(intent);
     }
 
 //    @Override

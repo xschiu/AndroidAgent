@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.ActionBar;
@@ -127,10 +128,12 @@ public class Home extends Activity {
 		this.chatButton();
 		this.sendEmail();
 //		this.playButton();
+		this.memoryButton();
 		this.calendarButton();
 		this.meButton();
 		this.gridSpinner();
 		this.expandButton();
+		
 		//this.listView();
 
 
@@ -349,6 +352,20 @@ public class Home extends Activity {
 			{
 				Intent intent = new Intent(getApplicationContext(), Me.class);	
 				startActivity(intent); 
+			}
+		}); 
+	}
+	
+	private void memoryButton()
+	{
+		ImageButton memory = (ImageButton)this.findViewById(R.id.diaryBtn); 
+		memory.setOnClickListener(new ImageButton.OnClickListener()
+		{ 
+			@Override
+			public void onClick(View v) 
+			{
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+				startActivity(browserIntent);
 			}
 		}); 
 	}
