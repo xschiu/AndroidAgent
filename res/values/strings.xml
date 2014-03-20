@@ -40,15 +40,17 @@
     </string-array>
 
     <string name="title_activity_email">Email</string>
-<!--     <string name="title_activity_tutorial">Tutorial</string> -->
+    <!-- <string name="title_activity_tutorial">Tutorial</string> -->
     <string name="title_activity_calendar_view">CalendarView</string>
     <string name="title_activity_calendar">Calendar</string>
     <string name="title_activity_butler">Butler</string>
     <string name="title_activity_notification">Notification</string>
     <string name="title_activity_record_tutorial">RecordTutorial</string>
-    
     <string name="hello">Custom Spinner</string>
-     <string name="defaultText">  Select your Company  </string>
-
+    <string name="defaultText">  Select your Company  </string>
+    <string name="title_activity_about_me">AboutMe</string>
+    <string name="title_activity_play_function">PlayFunction</string>
+    <string name="title_activity_play">Play</string>
+    <string name="title_activity_play2">Play2</string>
 
 </resources>

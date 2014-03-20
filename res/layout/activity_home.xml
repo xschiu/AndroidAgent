@@ -62,7 +62,7 @@
 >
 
 			<ImageButton
-			        android:id="@+id/playBtn"
+			        android:id="@+id/playFunctionBtn"
 			        android:layout_width="80dp"
 			        android:layout_height="80dp"
 			        android:layout_alignParentLeft="true"

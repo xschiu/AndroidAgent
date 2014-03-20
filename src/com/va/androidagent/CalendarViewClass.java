@@ -49,13 +49,8 @@ public class CalendarViewClass extends Activity {
         ContentUris.appendId(builder, startMillis);
         Intent intent = new Intent(Intent.ACTION_VIEW)
             .setData(builder.build());
+
         startActivity(intent);
-                  
-//        Intent intent = new Intent(Intent.ACTION_EDIT);
-//		intent.setType("vnd.android.cursor.item/event");
-//		intent.putExtra(Events.TITLE, "Medicine Time");
-//		intent.putExtra(Events.EVENT_LOCATION, "Home sweet home");
-//		intent.putExtra(Events.DESCRIPTION, "After Meals");
 //
 //		// Setting dates
 //		int month;

@@ -127,10 +127,10 @@ public class Home extends Activity {
 		
 		this.chatButton();
 		this.sendEmail();
-//		this.playButton();
+		this.playFunctionButton();
 		this.memoryButton();
 		this.calendarButton();
-		this.meButton();
+		this.aboutMeButton();
 		this.gridSpinner();
 		this.expandButton();
 		
@@ -328,21 +328,21 @@ public class Home extends Activity {
 		}); 
 	}
 
-//	private void playButton()
-//	{
-//		ImageButton play = (ImageButton)this.findViewById(R.id.playBtn); 
-//		play.setOnClickListener(new ImageButton.OnClickListener()
-//		{ 
-//			@Override
-//			public void onClick(View v) 
-//			{
-//				Intent intent = new Intent(getApplicationContext(), Play.class);	
-//				startActivity(intent); 
-//			}
-//		}); 
-//	}
+	private void playFunctionButton()
+	{
+		ImageButton play = (ImageButton)this.findViewById(R.id.playFunctionBtn); 
+		play.setOnClickListener(new ImageButton.OnClickListener()
+		{ 
+			@Override
+			public void onClick(View v) 
+			{
+				Intent intent = new Intent(getApplicationContext(), Play2.class);	
+				startActivity(intent); 
+			}
+		}); 
+	}
 
-	private void meButton()
+	private void aboutMeButton()
 	{
 		ImageButton me = (ImageButton)this.findViewById(R.id.meBtn); 
 		me.setOnClickListener(new ImageButton.OnClickListener()
@@ -350,7 +350,7 @@ public class Home extends Activity {
 			@Override
 			public void onClick(View v) 
 			{
-				Intent intent = new Intent(getApplicationContext(), Me.class);	
+				Intent intent = new Intent(getApplicationContext(), AboutMe.class);	
 				startActivity(intent); 
 			}
 		}); 

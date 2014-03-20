@@ -9,25 +9,22 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-    <uses-permission android:name="android.permission.READ_CALENDAR"/>
-    
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+
     <!-- permission required to use Alarm Manager -->
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <!-- permission required to Send SMS -->
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/smartbutler"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.va.androidagent.MainActivity"
             android:label="@string/app_name" >
-         
         </activity>
         <activity
             android:name="com.va.androidagent.FrameAnimationActivity"
@@ -50,8 +47,7 @@
             android:name="com.va.androidagent.Home"
             android:label="@string/title_activity_home"
             android:uiOptions="splitActionBarWhenNarrow" >
-            
-             <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -61,10 +57,12 @@
             android:name="com.va.androidagent.Email"
             android:label="@string/title_activity_email" >
         </activity>
-        <!-- <activity
+        <!--
+        <activity
             android:name="com.va.androidagent.Tutorial"
             android:label="@string/title_activity_tutorial" >
-        </activity> -->
+        </activity>
+        -->
         <activity
             android:name="com.va.androidagent.CalendarViewClass"
             android:label="@string/title_activity_calendar_view" >
@@ -86,9 +84,25 @@
             android:label="@string/title_activity_record_tutorial" >
         </activity>
 
-        
         <!-- Register the Alarm Receiver -->
-    	<receiver android:name=".AlarmReceiver"/> 
+        <receiver android:name="com.va.androidagent.AlarmReceiver" />
+
+        <activity
+            android:name="com.va.androidagent.AboutMe"
+            android:label="@string/title_activity_about_me" >
+        </activity>
+        <activity
+            android:name="com.va.androidagent.PlayFunction"
+            android:label="@string/title_activity_play_function" >
+        </activity>
+        <activity
+            android:name="com.va.androidagent.Play"
+            android:label="@string/title_activity_play" >
+        </activity>
+        <activity
+            android:name="com.va.androidagent.Play2"
+            android:label="@string/title_activity_play2" >
+        </activity>
     </application>
 
 </manifest>
