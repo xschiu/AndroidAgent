@@ -9,7 +9,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_functions">Functions</string>
     <string name="title_activity_chat">Chat</string>
-    <string name="title_activity_home">Virtual Butler</string>
+    <string name="title_activity_home">Smart Butler</string>
     <string name="prompt">  Select your Mood  </string>
     <string name="action_search">  Search  </string>
     <string name="action_chat">Chat</string>
@@ -52,5 +52,8 @@
     <string name="title_activity_play_function">PlayFunction</string>
     <string name="title_activity_play">Play</string>
     <string name="title_activity_play2">Play2</string>
+    <string name="title_activity_play1">Play1</string>
+    <string name="title_activity_learn1">Learn1</string>
+    <string name="title_activity_level2">Level2</string>
 
 </resources>

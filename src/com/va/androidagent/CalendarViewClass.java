@@ -47,8 +47,7 @@ public class CalendarViewClass extends Activity {
         Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
         builder.appendPath("time");
         ContentUris.appendId(builder, startMillis);
-        Intent intent = new Intent(Intent.ACTION_VIEW)
-            .setData(builder.build());
+        Intent intent = new Intent(Intent.ACTION_VIEW).setData(builder.build());
 
         startActivity(intent);
 //
@@ -103,6 +102,7 @@ public class CalendarViewClass extends Activity {
             // we fetch  the current time in milliseconds and added 1 day time
             // i.e. 24*60*60*1000= 86,400,000   milliseconds in a day        
             Long time = new GregorianCalendar().getTimeInMillis()+5000;
+           
 
             // create an Intent and set the class which will execute when Alarm triggers, here we have
             // given AlarmReciever in the Intent, the onRecieve() method of this class will execute when
@@ -110,16 +110,24 @@ public class CalendarViewClass extends Activity {
             //we will write the code to send SMS inside onRecieve() method pf Alarmreciever class
            
             Intent intentAlarm = new Intent(this, AlarmReceiver.class);
-            
+            Intent priority2 = new Intent(this,Priority2Alarm.class);
        
             // create the object
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
+          
+        	alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(this,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
+            alarmManager.set(AlarmManager.RTC_WAKEUP,time+5000, PendingIntent.getBroadcast(this,2, priority2, PendingIntent.FLAG_UPDATE_CURRENT));
+            
+            
+            
             //set the alarm for particular time
-            alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(this,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
-            Toast.makeText(this, "Alarm Scheduled for Tommrrow", Toast.LENGTH_LONG).show();
+          
+            
+            Toast.makeText(this, "Alarm Scheduled for Tomorrow", Toast.LENGTH_LONG).show();
          
     }
+    
+    
     
     public void queryCalendar(View view) {
 		// Run query

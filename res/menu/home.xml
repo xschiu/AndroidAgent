@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     
- 
+ <!-- 
     
     <item android:id="@+id/action_search"
           android:icon="@drawable/ic_action_search"
@@ -54,6 +54,6 @@
         android:id="@+id/dateTxt"
         android:actionViewClass="android.widget.TextView"
         android:showAsAction="always"
-        android:title="Hommmmmme"/>
+        android:title="Hommmmmme"/> -->
 
 </menu>

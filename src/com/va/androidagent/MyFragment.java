@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 public class MyFragment extends Fragment {
 
-	String[] strings = {"Distress","Arousal","Excitement","Misery","Neutral","Pleasure","Depression","Sleepy","Contentment"};
+	String[] strings = {"Distressed","Arousal","Excited","Misery","Neutral","Pleasure","Depressed","Sleepy","Contented"};
 	int arr_images[] = { R.drawable.moodicon1, R.drawable.moodicon2,R.drawable.moodicon3, R.drawable.moodicon4, R.drawable.moodicon5, R.drawable.moodicon6, R.drawable.moodicon7, R.drawable.moodicon8, R.drawable.moodicon9};
 	int images=3;
 	

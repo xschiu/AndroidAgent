@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="Home" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -19,20 +19,17 @@
         android:orientation="horizontal"
         android:background="#59000000">
 
-        <ImageView
-            android:id="@+id/weatherImage"
+    
+        <Button
+            android:id="@+id/celcius"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_alignParentLeft="true"
+            android:text="28°C" 
+            android:gravity="bottom"
+            android:textColor="@drawable/white"
             android:background="@drawable/cloudy"
-             />
-
-        <AnalogClock
-            android:id="@+id/analogClock1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_toRightOf="@+id/weatherImage"
-            android:layout_marginLeft="58dp" />
+            />
         
         <ImageView
 	        android:id="@+id/gridSpinner"
@@ -41,73 +38,25 @@
 	        android:layout_toRightOf="@+id/analogClock1"
 	        android:layout_marginLeft="58dp"
 	        android:background="@drawable/moodicon3" />
-        
-        <!-- <Spinner
-            android:id="@+id/emotionSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="13dp"
-            android:layout_toRightOf="@+id/analogClock1" /> -->
+       
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1"
->
-
-			<ImageButton
-			        android:id="@+id/playFunctionBtn"
-			        android:layout_width="80dp"
-			        android:layout_height="80dp"
-			        android:layout_alignParentLeft="true"
-			        android:layout_marginLeft="10dp"
-    	            android:layout_marginTop="20dp"
-			        android:background="@drawable/play" />
-
-			<ImageButton
-			    android:id="@+id/socialize"
-			    android:layout_width="80dp"
-			    android:layout_height="80dp"
-			    android:layout_marginLeft="35dp"
-			    android:layout_marginTop="20dp"
-			    android:background="@drawable/socialize" />
-
-            <ImageButton
-                android:id="@+id/learnBtn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="35dp"
-                android:background="@drawable/learn" />
-
-    </LinearLayout>
-
-	 <TextView
-            android:id="@+id/txtTemp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <AnalogClock
+            android:id="@+id/analogClock1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="70dp"
-            android:layout_marginLeft="5dp"
-            android:text="28 °C"
-            android:textColor="@drawable/white"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
 	 
 	 <ImageButton
-                android:id="@+id/meBtn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-		        android:layout_marginLeft="10dp"
-		        android:layout_marginTop="270dp"                
-                android:background="@drawable/me" />
+		android:id="@+id/meBtn"
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_alignParentLeft="true"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="270dp"                
+		android:background="@drawable/me" />
     
     <ImageButton
         android:id="@+id/mapBtn"
@@ -139,18 +88,9 @@
         android:background="@drawable/calendar" />
 
     <ImageButton
-        android:id="@+id/diaryBtn"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_alignRight="@+id/linearLayout2"
-        android:layout_alignTop="@+id/calendarBtn"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/functionmemory" />
-
-    <ImageButton
         android:id="@+id/chatBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/calendarBtn"
         android:layout_marginRight="20dp"
@@ -172,30 +112,7 @@
             android:layout_marginBottom = "10dp"
         />
         
-        <ImageButton
-			android:id="@+id/yesBtn"
-			android:layout_width="40dp"
-			android:layout_height="40dp"
-			android:background="@drawable/buttonyes"
-			android:layout_below="@+id/butlerMessageTxt"
-			android:layout_marginLeft="30dp" />
-        <ImageButton
-			android:id="@+id/cancelBtn"
-			android:layout_width="40dp"
-			android:layout_height="40dp"
-			android:background="@drawable/buttoncancel"
-			android:layout_toRightOf="@+id/yesBtn"
-			android:layout_marginLeft="75dp"
-			android:layout_below="@+id/butlerMessageTxt" />
-        
-        <ImageButton
-			android:id="@+id/expandBtn"
-			android:layout_width="40dp"
-			android:layout_height="40dp"
-			android:background="@drawable/buttonexpand"
-			android:layout_toRightOf="@+id/cancelBtn"
-			android:layout_marginLeft="75dp" 
-			android:layout_below="@+id/butlerMessageTxt"/>
+       
         
 
         
@@ -213,6 +130,39 @@
         android:textColor="@drawable/white"
         android:textSize="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageButton
+        android:id="@+id/socialize"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/calendarBtn"
+        android:layout_alignTop="@+id/learnBtn"
+        android:background="@drawable/socialize" />
+
+    <ImageButton
+        android:id="@+id/playFunctionBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/meBtn"
+        android:layout_alignTop="@+id/socialize"
+        android:background="@drawable/play" />
+
+    <ImageButton
+        android:id="@+id/learnBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/diaryBtn"
+        android:layout_alignRight="@+id/linearLayout1"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/learn" />
+
+    <ImageButton
+        android:id="@+id/diaryBtn"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignRight="@+id/learnBtn"
+        android:layout_alignTop="@+id/calendarBtn"
+        android:background="@drawable/functionmemory" />
 
 </RelativeLayout>
 

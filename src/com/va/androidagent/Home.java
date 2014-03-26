@@ -3,6 +3,7 @@ package com.va.androidagent;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +13,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -52,8 +55,6 @@ public class Home extends Activity {
 	
 
 	//Variabels
-	String[] strings = {"Distress","Arousal","Excitement","Misery","Neutral","Pleasure","Depression","Sleepy","Contentment"};
-	int arr_images[] = { R.drawable.moodicon1, R.drawable.moodicon2,R.drawable.moodicon3, R.drawable.moodicon4, R.drawable.moodicon5, R.drawable.moodicon6, R.drawable.moodicon7, R.drawable.moodicon8, R.drawable.moodicon9};
 	String[] weather = {"Rainning","Sunny","Thunder","Cloudy"};
 	int arr_weather[] = {R.drawable.raining, R.drawable.sunny, R.drawable.thunder, R.drawable.cloudy};
 	int arr_location[] = {R.drawable.livingroom, R.drawable.bathroom, R.drawable.bedroom, R.drawable.kitchen};
@@ -132,7 +133,7 @@ public class Home extends Activity {
 		this.calendarButton();
 		this.aboutMeButton();
 		this.gridSpinner();
-		this.expandButton();
+//		this.expandButton();
 		
 		//this.listView();
 
@@ -141,7 +142,7 @@ public class Home extends Activity {
 
 	@Override
     protected void onResume() {
-		String initialMessage = "Dear Sir, there is an Event at Serangoon CC tonight. Are you going?";
+		String initialMessage = "It's sunny outside. Let's have a jog together?";
 		super.onResume();
 		
 		TextView initialText = new TextView(this);
@@ -154,7 +155,8 @@ public class Home extends Activity {
         	TextView textView = new TextView(this);
     		textView = (TextView)findViewById(R.id.butlerMessageTxt);
     		textView.setText(message);
-    		
+    		 
+    	
         }
         
 
@@ -194,76 +196,7 @@ public class Home extends Activity {
 		return true;
 
 	}
-
-
-
-
-	   public class MyAdapter extends ArrayAdapter<String>{
-
-		   private Context context;
-	        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
-	            super(context, textViewResourceId, objects);
-	            this.context=context;
-	        }
-
-	        @Override
-	        public View getDropDownView(int position, View convertView,ViewGroup parent) {
-	            return getCustomView(position, convertView, parent);
-	        }
-
-	        @Override
-	        public View getView(int position, View convertView, ViewGroup parent) {
-
-//	        	 TODO Auto-generated method stub
-	     
-	        	
-		        TextView label=(TextView)convertView;
-
-		          if (convertView==null) {
-		            convertView=new TextView(context);
-		            label=(TextView)convertView;
-		          }
-		        
-		          label.setText(strings[position]);
-
-		          return(convertView);
-	        	
-
-//		          return getCustomView(position, convertView, parent);
-
-	        }
-
-	        public View getCustomView(int position, View convertView, ViewGroup parent) {
-
-
-	        	 //return super.getView(position, convertView, parent);
-
-		        LayoutInflater inflater=getLayoutInflater();
-		        View row=inflater.inflate(R.layout.row, parent, false);
-		        
-		       
-		        CustomGrid adapter = new CustomGrid(Home.this, strings, arr_images);
-		        GridView grid=(GridView)row.findViewById(R.id.grid);
-		        grid.setAdapter(adapter);
-		        
-		      
-	            return row;
-
-	        }   
-	   }
-
-
-/*	private void listView()
-	{
-		 public void onItemClick(ListView l, View v, int position, long id) {
-		        // Do something when a list item is clicked
-		    }
-		
-		
-	}*/
-
-
-	   
+	
 	   private void gridSpinner()
 		{
 		   
@@ -336,7 +269,7 @@ public class Home extends Activity {
 			@Override
 			public void onClick(View v) 
 			{
-				Intent intent = new Intent(getApplicationContext(), Play2.class);	
+				Intent intent = new Intent(getApplicationContext(), Play1.class);	
 				startActivity(intent); 
 			}
 		}); 
@@ -370,39 +303,39 @@ public class Home extends Activity {
 		}); 
 	}
 	
-	private void expandButton()
-	{
-		ImageButton expand = (ImageButton)this.findViewById(R.id.expandBtn); 
-		expand.setOnClickListener(new ImageButton.OnClickListener()
-		{ 
-			@Override
-			public void onClick(View v) 
-			{
-				if (i==0){
-					ImageButton expand = (ImageButton)findViewById(R.id.expandBtn); 
-					expand.setBackgroundResource(R.drawable.buttonshrink);
-					i=1;
-					
-					ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
-					FragmentManager manager = getFragmentManager();
-					FragmentTransaction transaction= manager.beginTransaction();
-					transaction.add(R.id.my_layout,expandedView,"expandedView");
-					transaction.commit();
-				}
-				else{
-					ImageButton expand = (ImageButton)findViewById(R.id.expandBtn); 
-					expand.setBackgroundResource(R.drawable.buttonexpand);
-					i=0;
-					 
-	                FragmentManager manager = getFragmentManager();
-				    FragmentTransaction transaction= manager.beginTransaction();
-				    transaction.remove(manager.findFragmentByTag("expandedView")).commit();
-				}
-				
-				
-			}
-		}); 
-	}
+//	private void expandButton()
+//	{
+//		ImageButton expand = (ImageButton)this.findViewById(R.id.expandBtn); 
+//		expand.setOnClickListener(new ImageButton.OnClickListener()
+//		{ 
+//			@Override
+//			public void onClick(View v) 
+//			{
+//				if (i==0){
+//					ImageButton expand = (ImageButton)findViewById(R.id.expandBtn); 
+//					expand.setBackgroundResource(R.drawable.buttonshrink);
+//					i=1;
+//					
+//					ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
+//					FragmentManager manager = getFragmentManager();
+//					FragmentTransaction transaction= manager.beginTransaction();
+//					transaction.add(R.id.my_layout,expandedView,"expandedView");
+//					transaction.commit();
+//				}
+//				else{
+//					ImageButton expand = (ImageButton)findViewById(R.id.expandBtn); 
+//					expand.setBackgroundResource(R.drawable.buttonexpand);
+//					i=0;
+//					 
+//	                FragmentManager manager = getFragmentManager();
+//				    FragmentTransaction transaction= manager.beginTransaction();
+//				    transaction.remove(manager.findFragmentByTag("expandedView")).commit();
+//				}
+//				
+//				
+//			}
+//		}); 
+//	}
 
 
 

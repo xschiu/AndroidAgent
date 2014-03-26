@@ -19,8 +19,9 @@
          android:textColor="@drawable/red"
          android:textStyle="bold"
          android:id="@+id/mood"
+         android:gravity="center"
          android:layout_marginLeft="5dip"
-         android:layout_width="wrap_content"
+         android:layout_width="80dp"
          android:layout_height="wrap_content"/>
 
 </LinearLayout>

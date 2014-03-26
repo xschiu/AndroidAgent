@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
 	<RelativeLayout
-	    android:id="@+id/linearLayout1"
+	    android:id="@+id/priority1Layout"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentBottom="true"
@@ -72,6 +72,40 @@
 	        android:layout_marginTop="17dp"
 	        android:textAppearance="?android:attr/textAppearanceLarge" 
 	        android:text="Address: " />
+	</RelativeLayout>
+	
+	<RelativeLayout
+	    android:id="@+id/responseLayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/priority1Layout"
+	    android:background="#ffffff"
+	    android:orientation="vertical" >
+	
+	     <ImageButton
+			android:id="@+id/yesBtn"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/buttonyes"
+			android:layout_below="@+id/butlerMessageTxt"
+			android:layout_marginLeft="30dp" />
+        <ImageButton
+			android:id="@+id/cancelBtn"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/buttoncancel"
+			android:layout_toRightOf="@+id/yesBtn"
+			android:layout_marginLeft="75dp"
+			android:layout_below="@+id/butlerMessageTxt" />
+        
+        <ImageButton
+			android:id="@+id/expandBtn"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/buttonexpand"
+			android:layout_toRightOf="@+id/cancelBtn"
+			android:layout_marginLeft="75dp" 
+			android:layout_below="@+id/butlerMessageTxt"/>
 	</RelativeLayout>
 
 </RelativeLayout>

@@ -43,6 +43,7 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
     }
     text = (TextView) convertView.findViewById(R.id.textView1);
     text.setText(children);
+
     convertView.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -92,6 +93,16 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
     Group group = (Group) getGroup(groupPosition);
     ((CheckedTextView) convertView).setText(group.string);
     ((CheckedTextView) convertView).setChecked(isExpanded);
+    if (group.string == "Dance")
+    	((CheckedTextView) convertView).setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.dance, 0);
+    if (group.string == "Sport")
+    	((CheckedTextView) convertView).setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.sport, 0);
+    if (group.string == "Stretch")
+    	((CheckedTextView) convertView).setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.stretch, 0);
+    if (group.string == "Yoga")
+    	((CheckedTextView) convertView).setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.yoga, 0);
+   
+    
     return convertView;
   }
 

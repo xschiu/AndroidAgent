@@ -57,9 +57,12 @@ public class Play2 extends Activity {
 	    	case 0:
 	    	{
 	    		group = new Group("Dance");
+	    	
 	    		for (int i = 0; i < 5; i++) {
 			        group.children.add("Sub Item" + i);
+			        
 			      }
+	    		
 			    groups.append(j, group);
 	    		break;
 	    	}
