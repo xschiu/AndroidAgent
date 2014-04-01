@@ -29,18 +29,10 @@ public class MyFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstancesState) {
-		
-		
-
-        View row=inflater.inflate(R.layout.row, container, false);
-    
+        View row=inflater.inflate(R.layout.row, container, false); 
         CustomGrid adapter = new CustomGrid(this.getActivity(), strings, arr_images);
         GridView grid=(GridView)row.findViewById(R.id.grid);
-        grid.setAdapter(adapter);
-       
-       
-
-      
+        grid.setAdapter(adapter); 
 		return row;
 	}
 	

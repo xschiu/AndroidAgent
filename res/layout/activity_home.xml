@@ -48,7 +48,7 @@
             android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
-	 
+
 	 <ImageButton
 		android:id="@+id/meBtn"
 		android:layout_width="80dp"
@@ -110,6 +110,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge" 
             android:layout_marginBottom = "10dp"
+            android:gravity="top"
         />
         
        
@@ -118,8 +119,8 @@
         
     </RelativeLayout>
 
-	        
-	
+
+
 
     <TextView
         android:id="@+id/todayDate"
@@ -165,7 +166,3 @@
         android:background="@drawable/functionmemory" />
 
 </RelativeLayout>
-
-
-
-     

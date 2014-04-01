@@ -31,12 +31,13 @@ public class Priority2Alarm extends BroadcastReceiver{
 		
 		Long time = new GregorianCalendar().getTimeInMillis()+5000;
 		 
-		String reminderMessage = "Level2";	
+		String reminderMessage = "The event at Toa Payoh Community Centre is Happening now";	
 		Intent i = new Intent(context,Home.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		i.putExtra("message", reminderMessage);
+		i.putExtra("level","2");
 		context.startActivity(i);
-
+		Log.i("alarm","alarm worked");  
 //	
 //        String phoneNumberReciver="+6582015534";// phone number to which SMS to be send
 //        String message="Your mother is very excited at 7pm earlier on, you may want to check her out";// message to send
@@ -44,10 +45,8 @@ public class Priority2Alarm extends BroadcastReceiver{
 //        SmsManager sms = SmsManager.getDefault(); 
 //        sms.sendTextMessage(phoneNumberReciver, null, message, null, null);
         // Show the toast  like in above screen shot
-        Toast.makeText(context, "Alarm Triggered and SMS Sent", Toast.LENGTH_LONG).show();
+        
     
-        Intent priority2 = new Intent(context, Priority2.class);
-        context.startService(priority2);
         
         
 

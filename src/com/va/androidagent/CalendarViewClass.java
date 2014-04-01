@@ -110,20 +110,32 @@ public class CalendarViewClass extends Activity {
             //we will write the code to send SMS inside onRecieve() method pf Alarmreciever class
            
             Intent intentAlarm = new Intent(this, AlarmReceiver.class);
-            Intent priority2 = new Intent(this,Priority2Alarm.class);
+//            Intent priority2 = new Intent(this,Priority2Alarm.class);
+//            Intent priority3 = new Intent(this,Priority3Alarm.class);
+//            Intent normal = new Intent(this,Normal.class);
+//            
+//            Intent med1 = new Intent(this, Med1.class);
+//            Intent med2 = new Intent(this,Med2.class);
+//            Intent med3 = new Intent(this,Med3.class);
        
             // create the object
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
           
         	alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(this,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
-            alarmManager.set(AlarmManager.RTC_WAKEUP,time+5000, PendingIntent.getBroadcast(this,2, priority2, PendingIntent.FLAG_UPDATE_CURRENT));
+//            alarmManager.set(AlarmManager.RTC_WAKEUP,time+5000, PendingIntent.getBroadcast(this,2, priority2, PendingIntent.FLAG_UPDATE_CURRENT));
+//            alarmManager.set(AlarmManager.RTC_WAKEUP,time+12000, PendingIntent.getBroadcast(this,3, priority3, PendingIntent.FLAG_UPDATE_CURRENT));
+//            alarmManager.set(AlarmManager.RTC_WAKEUP,time+18000, PendingIntent.getBroadcast(this,3, normal, PendingIntent.FLAG_UPDATE_CURRENT));
+//            
+//            alarmManager.set(AlarmManager.RTC_WAKEUP,time+24000, PendingIntent.getBroadcast(this,1,  med1, PendingIntent.FLAG_UPDATE_CURRENT));
+//            alarmManager.set(AlarmManager.RTC_WAKEUP,time+30000, PendingIntent.getBroadcast(this,2, med2, PendingIntent.FLAG_UPDATE_CURRENT));
+//            alarmManager.set(AlarmManager.RTC_WAKEUP,time+36000, PendingIntent.getBroadcast(this,3, med3, PendingIntent.FLAG_UPDATE_CURRENT));
             
             
             
             //set the alarm for particular time
           
             
-            Toast.makeText(this, "Alarm Scheduled for Tomorrow", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Alarm Scheduled", Toast.LENGTH_LONG).show();
          
     }
     

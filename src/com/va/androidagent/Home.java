@@ -12,8 +12,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.ActionBar;
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.PendingIntent;
@@ -52,7 +54,7 @@ public class Home extends Activity {
 	//to receive message from AlarmReceiver class 
 
 	private String memberFieldString;
-	
+
 
 	//Variabels
 	String[] weather = {"Rainning","Sunny","Thunder","Cloudy"};
@@ -63,7 +65,7 @@ public class Home extends Activity {
 	int x = 0;
 	int i = 0;
 
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -125,7 +127,7 @@ public class Home extends Activity {
 //        mySpinner.setAdapter(new MyAdapter(Home.this, R.layout.row, grids));
 //    
         
-		
+
 		this.chatButton();
 		this.sendEmail();
 		this.playFunctionButton();
@@ -134,7 +136,7 @@ public class Home extends Activity {
 		this.aboutMeButton();
 		this.gridSpinner();
 //		this.expandButton();
-		
+
 		//this.listView();
 
 
@@ -144,19 +146,59 @@ public class Home extends Activity {
     protected void onResume() {
 		String initialMessage = "It's sunny outside. Let's have a jog together?";
 		super.onResume();
-		
+
 		TextView initialText = new TextView(this);
 		initialText = (TextView)findViewById(R.id.butlerMessageTxt);
 		initialText.setText(initialMessage);
         Intent intent = getIntent();
         String message = intent.getStringExtra("message");
-
+        
         if (message != null && !message.isEmpty()) {
-        	TextView textView = new TextView(this);
-    		textView = (TextView)findViewById(R.id.butlerMessageTxt);
-    		textView.setText(message);
-    		 
-    	
+        	
+    		if(intent.getStringExtra("level").equals("1")){
+    			TextView textView = new TextView(this);
+        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+        		textView.setText(message);
+        		
+    		
+//				ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
+//				FragmentManager manager = getFragmentManager();
+//				FragmentTransaction transaction= manager.beginTransaction();
+//				transaction.add(R.id.my_layout,expandedView,"expandedView");
+//				transaction.commit();
+				
+				
+				
+				AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+				Long time = new GregorianCalendar().getTimeInMillis()+5000;
+				Intent priority2 = new Intent(this,Priority2Alarm.class);
+				alarmManager.set(AlarmManager.RTC_WAKEUP,time+5000, PendingIntent.getBroadcast(this,2, priority2, PendingIntent.FLAG_UPDATE_CURRENT));
+    		}
+    		
+			if(intent.getStringExtra("level").equals("2")){
+				
+				TextView textView = new TextView(this);
+        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+        		textView.setText(message);
+        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        		layoutParams.setMargins(0, 0, 100, 0);
+        		textView.setPadding(0, 0, 0, 150);
+        		textView.setLayoutParams(layoutParams);
+        		
+        		
+				Button okButton = new Button(this);
+                okButton.setText("OK");
+                RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
+                RelativeLayout.LayoutParams layoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                layoutParam.setMargins(100, 1450, 0, 0);
+                okButton.setLayoutParams(layoutParam); 
+                layout.addView(okButton);
+                
+               
+     
+		
+				Toast.makeText(this, "Level 2", Toast.LENGTH_LONG).show();
+			}
         }
         
 
@@ -176,7 +218,7 @@ public class Home extends Activity {
 		String dayOfTheWeek = sdf.format(d);
 		// textView is the TextView view that should display it
 		TextView todayDate = (TextView)findViewById(R.id.todayDate);
-		
+
 		todayDate.setText(currentDateString + " " + currentTimeString + " "+ dayOfTheWeek);
 
 		//Toast.makeText(this, currentDateTimeString, Toast.LENGTH_SHORT).show();
@@ -196,25 +238,25 @@ public class Home extends Activity {
 		return true;
 
 	}
-	
+
 	   private void gridSpinner()
 		{
-		   
+
 			ImageView gridSpinner = (ImageView)this.findViewById(R.id.gridSpinner); 
 			gridSpinner.setOnClickListener(new ImageView.OnClickListener()
 			{ 
 				@Override
 				public void onClick(View v) 
 				{
-					 
-					 
+
+
 					MyFragment frag = new MyFragment();
 					FragmentManager manager = getFragmentManager();
 					FragmentTransaction transaction= manager.beginTransaction();
 					transaction.add(R.id.my_layout,frag,"vivzFragment");
 					transaction.commit();
-				
-				     
+
+
 				}
 			}); 
 		}
@@ -288,7 +330,7 @@ public class Home extends Activity {
 			}
 		}); 
 	}
-	
+
 	private void memoryButton()
 	{
 		ImageButton memory = (ImageButton)this.findViewById(R.id.diaryBtn); 
@@ -302,7 +344,7 @@ public class Home extends Activity {
 			}
 		}); 
 	}
-	
+
 //	private void expandButton()
 //	{
 //		ImageButton expand = (ImageButton)this.findViewById(R.id.expandBtn); 

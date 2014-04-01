@@ -72,6 +72,8 @@
 	        android:layout_marginTop="17dp"
 	        android:textAppearance="?android:attr/textAppearanceLarge" 
 	        android:text="Address: " />
+
+
 	</RelativeLayout>
 	
 	<RelativeLayout
@@ -81,6 +83,13 @@
 	    android:layout_below="@+id/priority1Layout"
 	    android:background="#ffffff"
 	    android:orientation="vertical" >
+	    
+	    
+	     <Button
+	        android:id="@+id/testBtn"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Button" />
 	
 	     <ImageButton
 			android:id="@+id/yesBtn"

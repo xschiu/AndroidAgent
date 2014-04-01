@@ -87,6 +87,11 @@
         <!-- Register the Alarm Receiver -->
         <receiver android:name="com.va.androidagent.AlarmReceiver" />
         <receiver android:name="com.va.androidagent.Priority2Alarm" />
+        <receiver android:name="com.va.androidagent.Priority3Alarm" />
+        <receiver android:name="com.va.androidagent.Normal" />
+        <receiver android:name="com.va.androidagent.Med1" />
+        <receiver android:name="com.va.androidagent.Med2" />
+        <receiver android:name="com.va.androidagent.Med3" />
 
         <activity
             android:name="com.va.androidagent.AboutMe"
