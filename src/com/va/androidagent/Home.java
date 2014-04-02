@@ -176,56 +176,14 @@ public class Home extends Activity {
                 });
                 layout.addView(yesButton);
                 
-                Button noButton = new Button(this);
-                noButton.setText("NO");
-                noButton.setId(2);
-                RelativeLayout.LayoutParams noButtonParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                noButtonParam.setMargins(360, 1450, 0, 0);
-                noButton.setLayoutParams(noButtonParam); 
                 
-                noButton.setOnClickListener(new OnClickListener(){
-                	public void onClick(View v) {
-                		closeButtonGroup();
-                		
-                	}
-                });
-                layout.addView(noButton);
-				
-                final Button moreButton = new Button(this);
-                moreButton.setId(3);
-                moreButton.setText("MORE");
-                RelativeLayout.LayoutParams moreButtonParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                moreButtonParam.setMargins(620, 1450, 0, 0);
-                moreButton.setLayoutParams(moreButtonParam); 
-                
-                moreButton.setOnClickListener(new OnClickListener(){
-                	public void onClick(View v) {
-                		if (i==0){
-                			moreButton.setText("Close");
-        					i=1;
-        					
-        					ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
-        					FragmentManager manager = getFragmentManager();
-        					FragmentTransaction transaction= manager.beginTransaction();
-        					transaction.add(R.id.my_layout,expandedView,"expandedView");
-        					transaction.commit();
-        				}
-        				else{
-        					moreButton.setText("More");
-        					i=0;
-        					 
-        	                FragmentManager manager = getFragmentManager();
-        				    FragmentTransaction transaction= manager.beginTransaction();
-        				    transaction.remove(manager.findFragmentByTag("expandedView")).commit();
-        				}
-                		
-                	}
-                });
-                layout.addView(moreButton);
-                
-				
-				
+				addNoButton();
+                addMoreButton();
+               
     		}
+    		
+    		
+    		
     		
 			if(intent.getStringExtra("level").equals("2")){
 			
@@ -252,9 +210,10 @@ public class Home extends Activity {
                 	}
                 });
                 layout.addView(okButton);
-               
-     
-		
+                
+                addNoButton();
+                addMoreButton();
+                
 				Toast.makeText(this, "Level 2", Toast.LENGTH_LONG).show();
 			}
         }
@@ -285,8 +244,63 @@ public class Home extends Activity {
 
 	
 		
-	   private void closeButtonGroup(){
-		   
+	   private void addNoButton(){
+		   RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
+		   Button noButton = new Button(this);
+           noButton.setText("NO");
+           noButton.setId(2);
+           RelativeLayout.LayoutParams noButtonParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+           noButtonParam.setMargins(360, 1450, 0, 0);
+           noButton.setLayoutParams(noButtonParam); 
+           
+           noButton.setOnClickListener(new OnClickListener(){
+           	public void onClick(View v) {
+           		closeButtonGroup();
+           		
+           	}
+           });
+           layout.addView(noButton);
+	   }
+		
+	   private void addMoreButton(){
+		   RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
+		   final Button moreButton = new Button(this);
+           moreButton.setId(3);
+           moreButton.setText("MORE");
+           RelativeLayout.LayoutParams moreButtonParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+           moreButtonParam.setMargins(620, 1450, 0, 0);
+           moreButton.setLayoutParams(moreButtonParam); 
+           
+           moreButton.setOnClickListener(new OnClickListener(){
+           	public void onClick(View v) {
+           		if (i==0){
+           			moreButton.setText("Close");
+   					i=1;
+   					
+   					ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
+   					FragmentManager manager = getFragmentManager();
+   					FragmentTransaction transaction= manager.beginTransaction();
+   					transaction.add(R.id.my_layout,expandedView,"expandedView");
+   					transaction.commit();
+   				}
+   				else{
+   					moreButton.setText("More");
+   					i=0;
+   					 
+   	                FragmentManager manager = getFragmentManager();
+   				    FragmentTransaction transaction= manager.beginTransaction();
+   				    transaction.remove(manager.findFragmentByTag("expandedView")).commit();
+   				}
+           		
+           	}
+           });
+           layout.addView(moreButton);
+           
+			
+			
+	   }
+		
+	   private void closeButtonGroup(){ 
 		   ViewGroup layout = (ViewGroup) findViewById(R.id.my_layout);
 		   View yesBtn = layout.findViewById(1);
 		   View noBtn = layout.findViewById(2);
@@ -302,8 +316,7 @@ public class Home extends Activity {
 		   RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 	   	   layoutParams.setMargins(0, 0, 0, 0);
 	   	   textView.setPadding(0, 0, 0, 0);
-	   	   textView.setLayoutParams(layoutParams);
-		
+	   	   textView.setLayoutParams(layoutParams);	
 	   }
 	   
 	   //methods to call emoticons
@@ -321,8 +334,6 @@ public class Home extends Activity {
 					FragmentTransaction transaction= manager.beginTransaction();
 					transaction.add(R.id.my_layout,frag,"vivzFragment");
 					transaction.commit();
-
-
 				}
 			}); 
 		}
@@ -407,19 +418,6 @@ public class Home extends Activity {
 			{
 				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
 				startActivity(browserIntent);
-			}
-		}); 
-	}
-	
-	private void okButton()
-	{
-		Button okBtn = (Button)this.findViewById(R.id.diaryBtn); 
-		okBtn.setOnClickListener(new Button.OnClickListener()
-		{ 
-			@Override
-			public void onClick(View v) 
-			{
-				
 			}
 		}); 
 	}
