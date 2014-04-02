@@ -25,38 +25,5 @@ public class ExpandedView extends Fragment {
 	}
 	
 	
-	private void expandButton()
-	{
-		ImageButton expand = (ImageButton)getActivity().findViewById(R.id.expandBtn); 
-		expand.setOnClickListener(new ImageButton.OnClickListener()
-		{ 
-			@Override
-			public void onClick(View v) 
-			{
-				if (i==0){
-					ImageButton expand = (ImageButton)getActivity().findViewById(R.id.expandBtn); 
-					expand.setBackgroundResource(R.drawable.buttonshrink);
-					i=1;
-					
-					ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
-					FragmentManager manager = getFragmentManager();
-					FragmentTransaction transaction= manager.beginTransaction();
-					transaction.add(R.id.my_layout,expandedView,"expandedView");
-					transaction.commit();
-				}
-				else{
-					ImageButton expand = (ImageButton)getActivity().findViewById(R.id.expandBtn); 
-					expand.setBackgroundResource(R.drawable.buttonexpand);
-					i=0;
-					 
-	                FragmentManager manager = getFragmentManager();
-				    FragmentTransaction transaction= manager.beginTransaction();
-				    transaction.remove(manager.findFragmentByTag("expandedView")).commit();
-				}
-				
-				
-			}
-		}); 
-	}
 
 }

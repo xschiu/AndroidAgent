@@ -65,6 +65,9 @@ public class Home extends Activity {
 	int x = 0;
 	int i = 0;
 
+	public String initialMessage;
+
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -82,25 +85,6 @@ public class Home extends Activity {
 //      transaction.add(R.id.my_layout,frag,"vivzFragment");
 //      transaction.commit();
       
-    
-      
-	     // We get the ListView component from the layout
-	    // ListView lv = (ListView) findViewById(R.id.listView1);
-
-	     // This is a simple adapter that accepts as parameter
-	     // Context
-	     // Data list
-	     // The row layout that is used during the row creation
-	     // The keys used to retrieve the data
-	     // The View id used to show the data. The key number and the view id must match
-	    // simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
-	  //   SimpleAdapter simpleAdpt = new SimpleAdapter(this, planetsList, android.R.layout.simple_list_item_1, new String[] {"planet"}, new int[] {android.R.id.text1});
-	   //  lv.setAdapter(simpleAdpt);
-
-//		 TextView tvHeading = (TextView) findViewById(R.id.titleHeading);
-//		 tvHeading.setText("Add New Transaction");
-
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 
@@ -144,7 +128,7 @@ public class Home extends Activity {
 
 	@Override
     protected void onResume() {
-		String initialMessage = "It's sunny outside. Let's have a jog together?";
+		initialMessage = "It's sunny outside. Let's have a jog together?";
 		super.onResume();
 
 		TextView initialText = new TextView(this);
@@ -160,23 +144,91 @@ public class Home extends Activity {
         		textView = (TextView)findViewById(R.id.butlerMessageTxt);
         		textView.setText(message);
         		
+        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        		layoutParams.setMargins(0, 0, 100, 0);
+        		textView.setPadding(0, 0, 0, 150);
+        		textView.setLayoutParams(layoutParams);
+        		
     		
 //				ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
 //				FragmentManager manager = getFragmentManager();
 //				FragmentTransaction transaction= manager.beginTransaction();
 //				transaction.add(R.id.my_layout,expandedView,"expandedView");
 //				transaction.commit();
+        		
+        		Button yesButton = new Button(this);
+                yesButton.setText("OK");
+                yesButton.setId(1);
+                RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
+                RelativeLayout.LayoutParams yesButtonParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                yesButtonParam.setMargins(100, 1450, 0, 0);
+                yesButton.setLayoutParams(yesButtonParam); 
+                yesButton.setOnClickListener(new OnClickListener(){
+                	public void onClick(View v) {
+
+                		closeButtonGroup();
+                		AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        				Long time = new GregorianCalendar().getTimeInMillis()+5000;
+        				Intent priority2 = new Intent(Home.this,Priority2Alarm.class);
+        				alarmManager.set(AlarmManager.RTC_WAKEUP,time+5000, PendingIntent.getBroadcast(Home.this,2, priority2, PendingIntent.FLAG_UPDATE_CURRENT));
+                		
+                	}
+                });
+                layout.addView(yesButton);
+                
+                Button noButton = new Button(this);
+                noButton.setText("NO");
+                noButton.setId(2);
+                RelativeLayout.LayoutParams noButtonParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                noButtonParam.setMargins(360, 1450, 0, 0);
+                noButton.setLayoutParams(noButtonParam); 
+                
+                noButton.setOnClickListener(new OnClickListener(){
+                	public void onClick(View v) {
+                		closeButtonGroup();
+                		
+                	}
+                });
+                layout.addView(noButton);
+				
+                final Button moreButton = new Button(this);
+                moreButton.setId(3);
+                moreButton.setText("MORE");
+                RelativeLayout.LayoutParams moreButtonParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                moreButtonParam.setMargins(620, 1450, 0, 0);
+                moreButton.setLayoutParams(moreButtonParam); 
+                
+                moreButton.setOnClickListener(new OnClickListener(){
+                	public void onClick(View v) {
+                		if (i==0){
+                			moreButton.setText("Close");
+        					i=1;
+        					
+        					ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
+        					FragmentManager manager = getFragmentManager();
+        					FragmentTransaction transaction= manager.beginTransaction();
+        					transaction.add(R.id.my_layout,expandedView,"expandedView");
+        					transaction.commit();
+        				}
+        				else{
+        					moreButton.setText("More");
+        					i=0;
+        					 
+        	                FragmentManager manager = getFragmentManager();
+        				    FragmentTransaction transaction= manager.beginTransaction();
+        				    transaction.remove(manager.findFragmentByTag("expandedView")).commit();
+        				}
+                		
+                	}
+                });
+                layout.addView(moreButton);
+                
 				
 				
-				
-				AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-				Long time = new GregorianCalendar().getTimeInMillis()+5000;
-				Intent priority2 = new Intent(this,Priority2Alarm.class);
-				alarmManager.set(AlarmManager.RTC_WAKEUP,time+5000, PendingIntent.getBroadcast(this,2, priority2, PendingIntent.FLAG_UPDATE_CURRENT));
     		}
     		
 			if(intent.getStringExtra("level").equals("2")){
-				
+			
 				TextView textView = new TextView(this);
         		textView = (TextView)findViewById(R.id.butlerMessageTxt);
         		textView.setText(message);
@@ -192,8 +244,14 @@ public class Home extends Activity {
                 RelativeLayout.LayoutParams layoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 layoutParam.setMargins(100, 1450, 0, 0);
                 okButton.setLayoutParams(layoutParam); 
-                layout.addView(okButton);
                 
+                okButton.setOnClickListener(new OnClickListener(){
+                	public void onClick(View v) {
+                		
+                		
+                	}
+                });
+                layout.addView(okButton);
                
      
 		
@@ -221,24 +279,34 @@ public class Home extends Activity {
 
 		todayDate.setText(currentDateString + " " + currentTimeString + " "+ dayOfTheWeek);
 
-		//Toast.makeText(this, currentDateTimeString, Toast.LENGTH_SHORT).show();
-		//TextView todayDate = new TextView(this);
-		// textView is the TextView view that; should display it
-
-
-
-
-		//Display WeekDay
-
-//		SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
-//		Date d = new Date();
-//		String dayOfTheWeek = sdf.format(d);
-//		TextView weekDay = (TextView)findViewById(R.id.weekDay);
-//		weekDay.setText(dayOfTheWeek);
 		return true;
 
 	}
 
+	
+		
+	   private void closeButtonGroup(){
+		   
+		   ViewGroup layout = (ViewGroup) findViewById(R.id.my_layout);
+		   View yesBtn = layout.findViewById(1);
+		   View noBtn = layout.findViewById(2);
+		   View moreBtn = layout.findViewById(3);
+			
+		   layout.removeView(yesBtn);
+		   layout.removeView(noBtn);
+		   layout.removeView(moreBtn);
+		   
+		   TextView textView = new TextView(this);
+	   	   textView = (TextView)findViewById(R.id.butlerMessageTxt);
+	   	   textView.setText(initialMessage);
+		   RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	   	   layoutParams.setMargins(0, 0, 0, 0);
+	   	   textView.setPadding(0, 0, 0, 0);
+	   	   textView.setLayoutParams(layoutParams);
+		
+	   }
+	   
+	   //methods to call emoticons
 	   private void gridSpinner()
 		{
 
@@ -248,8 +316,6 @@ public class Home extends Activity {
 				@Override
 				public void onClick(View v) 
 				{
-
-
 					MyFragment frag = new MyFragment();
 					FragmentManager manager = getFragmentManager();
 					FragmentTransaction transaction= manager.beginTransaction();
@@ -344,43 +410,17 @@ public class Home extends Activity {
 			}
 		}); 
 	}
-
-//	private void expandButton()
-//	{
-//		ImageButton expand = (ImageButton)this.findViewById(R.id.expandBtn); 
-//		expand.setOnClickListener(new ImageButton.OnClickListener()
-//		{ 
-//			@Override
-//			public void onClick(View v) 
-//			{
-//				if (i==0){
-//					ImageButton expand = (ImageButton)findViewById(R.id.expandBtn); 
-//					expand.setBackgroundResource(R.drawable.buttonshrink);
-//					i=1;
-//					
-//					ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
-//					FragmentManager manager = getFragmentManager();
-//					FragmentTransaction transaction= manager.beginTransaction();
-//					transaction.add(R.id.my_layout,expandedView,"expandedView");
-//					transaction.commit();
-//				}
-//				else{
-//					ImageButton expand = (ImageButton)findViewById(R.id.expandBtn); 
-//					expand.setBackgroundResource(R.drawable.buttonexpand);
-//					i=0;
-//					 
-//	                FragmentManager manager = getFragmentManager();
-//				    FragmentTransaction transaction= manager.beginTransaction();
-//				    transaction.remove(manager.findFragmentByTag("expandedView")).commit();
-//				}
-//				
-//				
-//			}
-//		}); 
-//	}
-
-
-
-
-
+	
+	private void okButton()
+	{
+		Button okBtn = (Button)this.findViewById(R.id.diaryBtn); 
+		okBtn.setOnClickListener(new Button.OnClickListener()
+		{ 
+			@Override
+			public void onClick(View v) 
+			{
+				
+			}
+		}); 
+	}
 }
