@@ -106,17 +106,18 @@ containing a value of this type.
     public static final class id {
         public static final int LinearLayout1=0x7f09002b;
         public static final int action=0x7f09000a;
-        public static final int action_settings=0x7f090039;
+        public static final int action_settings=0x7f09003a;
         public static final int analogClock1=0x7f090016;
         public static final int android1=0x7f090008;
-        public static final int animationImage=0x7f090031;
+        public static final int animationImage=0x7f090032;
         public static final int butlerMessageTxt=0x7f09001d;
+        public static final int button1=0x7f09002d;
         public static final int calendarBtn=0x7f090019;
         public static final int celcius=0x7f090014;
         public static final int chatBtn=0x7f09001a;
         public static final int contactsButton=0x7f090001;
         public static final int diaryBtn=0x7f090022;
-        public static final int dxLogo=0x7f090037;
+        public static final int dxLogo=0x7f090038;
         public static final int editText3=0x7f090025;
         public static final int editText5=0x7f090026;
         public static final int editText6=0x7f090024;
@@ -124,11 +125,11 @@ containing a value of this type.
         public static final int emailBtn=0x7f09001b;
         public static final int emotion_icon=0x7f090007;
         public static final int finishBtn=0x7f090028;
-        public static final int fragmentTxt=0x7f090036;
-        public static final int functionsLayout=0x7f09002e;
-        public static final int grid=0x7f090034;
+        public static final int fragmentTxt=0x7f090037;
+        public static final int functionsLayout=0x7f09002f;
+        public static final int grid=0x7f090035;
         public static final int gridSpinner=0x7f090015;
-        public static final int image1=0x7f090032;
+        public static final int image1=0x7f090033;
         public static final int imageView1=0x7f090027;
         public static final int learnBtn=0x7f090020;
         public static final int linearLayout1=0x7f090013;
@@ -137,22 +138,22 @@ containing a value of this type.
         public static final int location=0x7f09000d;
         public static final int mapBtn=0x7f090018;
         public static final int meBtn=0x7f090017;
-        public static final int menuGroup_Main=0x7f09003a;
+        public static final int menuGroup_Main=0x7f09003b;
         public static final int miniGameBtn=0x7f09002a;
-        public static final int mood=0x7f090033;
+        public static final int mood=0x7f090034;
         public static final int my_layout=0x7f090012;
         public static final int output=0x7f090011;
         public static final int physicalActivitiesBtn=0x7f090029;
         public static final int playFunctionBtn=0x7f090021;
-        public static final int priority1Layout=0x7f09002d;
+        public static final int priority1Layout=0x7f09002e;
         public static final int schedulerBtn=0x7f09000f;
         public static final int schedulerTxt=0x7f09000e;
         public static final int sendBtn=0x7f090009;
-        public static final int smartButlerImage=0x7f090035;
+        public static final int smartButlerImage=0x7f090036;
         public static final int socialize=0x7f09001f;
         public static final int spinner=0x7f090010;
         public static final int spinner1=0x7f09000b;
-        public static final int startFAButtonId=0x7f090030;
+        public static final int startFAButtonId=0x7f090031;
         public static final int taskTxt=0x7f09000c;
         public static final int textView1=0x7f090003;
         public static final int textView2=0x7f090000;
@@ -160,8 +161,8 @@ containing a value of this type.
         public static final int textView4=0x7f090004;
         public static final int textView5=0x7f090005;
         public static final int textView6=0x7f090006;
-        public static final int textViewId1=0x7f09002f;
-        public static final int titleHeading=0x7f090038;
+        public static final int textViewId1=0x7f090030;
+        public static final int titleHeading=0x7f090039;
         public static final int todayDate=0x7f09001e;
     }
     public static final class layout {
@@ -177,15 +178,16 @@ containing a value of this type.
         public static final int activity_main=0x7f030009;
         public static final int activity_play1=0x7f03000a;
         public static final int activity_play2=0x7f03000b;
-        public static final int expanded=0x7f03000c;
-        public static final int frame_animations_layout=0x7f03000d;
-        public static final int grid_view_item=0x7f03000e;
-        public static final int listrow_details=0x7f03000f;
-        public static final int listrow_group=0x7f030010;
-        public static final int my_table=0x7f030011;
-        public static final int row=0x7f030012;
-        public static final int smart_butler=0x7f030013;
-        public static final int title_bar=0x7f030014;
+        public static final int calendarview=0x7f03000c;
+        public static final int expanded=0x7f03000d;
+        public static final int frame_animations_layout=0x7f03000e;
+        public static final int grid_view_item=0x7f03000f;
+        public static final int listrow_details=0x7f030010;
+        public static final int listrow_group=0x7f030011;
+        public static final int my_table=0x7f030012;
+        public static final int row=0x7f030013;
+        public static final int smart_butler=0x7f030014;
+        public static final int title_bar=0x7f030015;
     }
     public static final class menu {
         public static final int about_me=0x7f080000;
