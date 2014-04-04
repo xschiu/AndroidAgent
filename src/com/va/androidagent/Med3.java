@@ -35,6 +35,7 @@ public class Med3 extends BroadcastReceiver{
 		Intent i = new Intent(context,Home.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		i.putExtra("message", reminderMessage);
+		i.putExtra("level", "7");
 		context.startActivity(i);
 		Log.i("alarm","alarm worked");  
 //	

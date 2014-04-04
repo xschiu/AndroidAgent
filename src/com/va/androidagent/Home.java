@@ -137,6 +137,8 @@ public class Home extends Activity {
         Intent intent = getIntent();
         String message = intent.getStringExtra("message");
         
+//        CalendarService.readCalendar(Home.this);
+        
         if (message != null && !message.isEmpty()) {
         	
     		if(intent.getStringExtra("level").equals("1")){
@@ -216,11 +218,125 @@ public class Home extends Activity {
                 
 				Toast.makeText(this, "Level 2", Toast.LENGTH_LONG).show();
 			}
-        }
         
+        
+	    		if(intent.getStringExtra("level").equals("5")){
+	    			TextView textView = new TextView(this);
+	        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+	        		textView.setText(message);
+	        		
+	        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	        		layoutParams.setMargins(0, 0, 100, 0);
+	        		textView.setPadding(0, 0, 0, 150);
+	        		textView.setLayoutParams(layoutParams);
+	        		
+	    		
+	//				ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
+	//				FragmentManager manager = getFragmentManager();
+	//				FragmentTransaction transaction= manager.beginTransaction();
+	//				transaction.add(R.id.my_layout,expandedView,"expandedView");
+	//				transaction.commit();
+	        		
+	        		Button med1Button = new Button(this);
+	                med1Button.setText("OK");
+	                med1Button.setId(5);
+	                RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
+	                RelativeLayout.LayoutParams okButtonParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	                okButtonParam.setMargins(100, 1450, 0, 0);
+	                med1Button.setLayoutParams(okButtonParam); 
+	                med1Button.setOnClickListener(new OnClickListener(){
+	                	public void onClick(View v) {
+	
+	                	   ViewGroup layout = (ViewGroup) findViewById(R.id.my_layout);
+	             		   View med1Btn = layout.findViewById(5);
+	             		   layout.removeView(med1Btn);
+	             		   
+	             		   TextView textView = new TextView(Home.this);
+		           	   	   textView = (TextView)findViewById(R.id.butlerMessageTxt);
+		           	   	   textView.setText(initialMessage);
+		           		   RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		           	   	   layoutParams.setMargins(0, 0, 0, 0);
+		           	   	   textView.setPadding(0, 0, 0, 0);
+		           	   	   textView.setLayoutParams(layoutParams);	
 
+	                		AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+	        				Long time = new GregorianCalendar().getTimeInMillis()+5000;
+	        				Intent med2 = new Intent(Home.this,Med2.class);
+	        				alarmManager.set(AlarmManager.RTC_WAKEUP,time+5000, PendingIntent.getBroadcast(Home.this,5, med2, PendingIntent.FLAG_UPDATE_CURRENT));
+	                		
+	                	}
+	                });
+	              
+	                layout.addView(med1Button);
+	                Toast.makeText(this, "Med Level 1", Toast.LENGTH_LONG).show();
 
-	}
+	    		}
+	    		
+	    		
+	    		
+	    		if(intent.getStringExtra("level").equals("6")){
+	    			
+					TextView textView = new TextView(this);
+	        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+	        		textView.setText(message);
+	        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	        		layoutParams.setMargins(0, 0, 100, 0);
+	        		textView.setPadding(0, 0, 0, 150);
+	        		textView.setLayoutParams(layoutParams);
+	        		
+	        		
+					Button med3Button = new Button(this);
+	                med3Button.setText("OK");
+	                med3Button.setId(6);
+	                RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
+	                RelativeLayout.LayoutParams layoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	                layoutParam.setMargins(100, 1450, 0, 0);
+	                med3Button.setLayoutParams(layoutParam); 
+	                
+	                med3Button.setOnClickListener(new OnClickListener(){
+	                	public void onClick(View v) {
+	                		ViewGroup layout = (ViewGroup) findViewById(R.id.my_layout);
+		             		   View med3Btn = layout.findViewById(6);
+		             		   layout.removeView(med3Btn);
+		             		   
+		             		   TextView textView = new TextView(Home.this);
+			           	   	   textView = (TextView)findViewById(R.id.butlerMessageTxt);
+			           	   	   textView.setText(initialMessage);
+			           		   RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+			           	   	   layoutParams.setMargins(0, 0, 0, 0);
+			           	   	   textView.setPadding(0, 0, 0, 0);
+			           	   	   textView.setLayoutParams(layoutParams);	
+
+			           	   	   AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+			           	   	   Long time = new GregorianCalendar().getTimeInMillis()+5000;
+			           	   	   Intent med3 = new Intent(Home.this,Med3.class);
+			           	   	   alarmManager.set(AlarmManager.RTC_WAKEUP,time+5000, PendingIntent.getBroadcast(Home.this,5, med3, PendingIntent.FLAG_UPDATE_CURRENT));
+	                		
+	                	}
+	                });
+	                layout.addView(med3Button);
+	                
+	                
+					Toast.makeText(this, "Level 6", Toast.LENGTH_LONG).show();
+				}
+
+	    		
+	    		if(intent.getStringExtra("level").equals("7")){
+	    			
+					TextView textView = new TextView(this);
+	        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+	        		textView.setText(initialMessage);
+	        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	        		layoutParams.setMargins(0, 0, 100, 0);
+	        		textView.setPadding(0, 0, 0, 150);
+	        		textView.setLayoutParams(layoutParams);
+	                
+	                
+					Toast.makeText(this, "Level 7", Toast.LENGTH_LONG).show();
+				}
+
+        }
+    }
 
 
 	@Override

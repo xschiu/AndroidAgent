@@ -1,16 +1,24 @@
 package com.va.androidagent;
 
+import java.text.Format;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.widget.Toast;
@@ -23,6 +31,7 @@ import android.widget.Toast;
 
 
 public class CalendarService {
+	
 
 	// Default constructor
 	public static void readCalendar(Context context) {
@@ -54,7 +63,7 @@ public class CalendarService {
 	        long now = new Date().getTime();
 
 	        // create the time span based on the inputs
-	        ContentUris.appendId(builder, now - (DateUtils.DAY_IN_MILLIS * days) - (DateUtils.HOUR_IN_MILLIS * hours));
+	        ContentUris.appendId(builder, now );
 	        ContentUris.appendId(builder, now + (DateUtils.DAY_IN_MILLIS * days) + (DateUtils.HOUR_IN_MILLIS * hours));
 
 	        // Create an event cursor to find all events in the calendar
@@ -64,8 +73,9 @@ public class CalendarService {
 	                null, "startDay ASC, startMinute ASC");
 
 	        System.out.println("eventCursor count="+eventCursor.getCount());
+	        long start = 0L;
+	        String title = "N/A";
 	        
-
 	        // If there are actual events in the current calendar, the count will exceed zero
 	        if(eventCursor.getCount()>0)
 	        {
@@ -76,6 +86,18 @@ public class CalendarService {
 	        	// Move to the first object
 	            eventCursor.moveToFirst();
 
+	            Format tf = DateFormat.getTimeFormat(context);
+	            try {
+	    			title = eventCursor.getString(0);
+	    
+	    			start = eventCursor.getLong(1);
+	    
+	    			} catch (Exception e) {
+	    			//ignore
+	    
+	    		}
+	           
+
 	            // Create an object of CalendarEvent which contains the title, when the event begins and ends, 
 	            // and if it is a full day event or not 
 	            CalendarEvent ce = loadEvent(eventCursor);
@@ -84,21 +106,37 @@ public class CalendarService {
 	            eventList.add(ce);
 
 	            System.out.println("ce" + ce.toString());
-
+	            
 	            // While there are more events in the current calendar, move to the next instance
 	            while (eventCursor.moveToNext())
 	            {
 
 	            	// Adds the object to the list of events
 	            	ce = loadEvent(eventCursor);
-	            	eventList.add(ce);
+	            	eventList.add(ce);  
 
 	            	System.out.println(ce.toString());
 	            	
 
 	            }
+	            Calendar cal = GregorianCalendar.getInstance();
+	            cal.setTimeInMillis(start);
+	            cal.add(Calendar.SECOND, -30);
+	            
+	            
+	            Long time = cal.getTimeInMillis();      
+	            
+	            Intent intentAlarm = new Intent(context, Med1.class);
+	            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+	          
+	        	alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(context,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
+	            
+	            
+	            
+	            
+	            
 	            System.out.println("First item is " + eventList.subList(0, 1).toString());
-//	            System.out.println("Starting time of first item is" + eventList.subList(0,1).get(2));
+	            System.out.println("title=" + title + "   start= "+ start + "  time " + time);
 	    	    Collections.sort(eventList);
 	    	    eventMap.put(id, eventList);
 	    	    System.out.println(eventMap.keySet().size() + " " + eventMap.values());
@@ -113,11 +151,14 @@ public class CalendarService {
 						new Date(csr.getLong(1)),
 						new Date(csr.getLong(2)), 
 						!csr.getString(3).equals("0"));
+		
+		
 	}
 
+	
 	// Creates the list of calendar ids and returns it in a set
 	private static HashSet<String> getCalenderIds(Cursor cursor) {
-
+		
 		HashSet<String> calendarIds = new HashSet<String>();
 
 		try
@@ -132,12 +173,12 @@ public class CalendarService {
 
 		             String _id = cursor.getString(0);
 		             String displayName = cursor.getString(1);
-		             final Date begin = new Date(cursor.getLong(2));
+//		             start = cursor.getLong(2);
 		             Boolean selected = !cursor.getString(3).equals("0");
 		             
 
 		            System.out.println("Id: " + _id + " Display Name: " + displayName + " Selected: " + selected);
-		            System.out.println("only date begin of events="+begin);
+		            
 		            calendarIds.add(_id);
 		           
 		            

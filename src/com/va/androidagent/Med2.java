@@ -35,8 +35,9 @@ public class Med2 extends BroadcastReceiver{
 		Intent i = new Intent(context,Home.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		i.putExtra("message", reminderMessage);
+		i.putExtra("level", "6");
 		context.startActivity(i);
-		Log.i("alarm","alarm worked");  
+
 //	
 //        String phoneNumberReciver="+6582015534";// phone number to which SMS to be send
 //        String message="Your mother is very excited at 7pm earlier on, you may want to check her out";// message to send
