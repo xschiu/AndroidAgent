@@ -119,6 +119,7 @@ public class Home extends Activity {
 		this.calendarButton();
 		this.aboutMeButton();
 		this.gridSpinner();
+		this.socialButton();
 //		this.expandButton();
 
 		//this.listView();
@@ -534,6 +535,20 @@ public class Home extends Activity {
 			{
 				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
 				startActivity(browserIntent);
+			}
+		}); 
+	}
+	
+	private void socialButton()
+	{
+		ImageButton social = (ImageButton)this.findViewById(R.id.socialize); 
+		social.setOnClickListener(new ImageButton.OnClickListener()
+		{ 
+			@Override
+			public void onClick(View v) 
+			{
+				Intent intent = new Intent(getApplicationContext(), Social.class);	
+				startActivity(intent); 
 			}
 		}); 
 	}

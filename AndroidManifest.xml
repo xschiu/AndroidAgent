@@ -16,8 +16,9 @@
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <!-- permission required to Send SMS -->
     <uses-permission android:name="android.permission.SEND_SMS" />
-	<uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
-	
+    <uses-permission android:name="android.permission.RECEIVE_SMS" >
+    </uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/smartbutler"
@@ -87,8 +88,9 @@
 
         <!-- Register the Alarm Receiver -->
         <receiver android:name="com.va.androidagent.SMSReceiver" >
-         	<intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" >
+                </action>
             </intent-filter>
         </receiver>
         <receiver android:name="com.va.androidagent.AlarmReceiver" />
@@ -126,6 +128,10 @@
         <activity
             android:name="com.va.androidagent.Level2"
             android:label="@string/title_activity_level2" >
+        </activity>
+        <activity
+            android:name="com.va.androidagent.Social"
+            android:label="@string/title_activity_social" >
         </activity>
     </application>
 
