@@ -120,6 +120,7 @@ public class Home extends Activity {
 		this.aboutMeButton();
 		this.gridSpinner();
 		this.socialButton();
+		this.learnBtn();
 //		this.expandButton();
 
 		//this.listView();
@@ -151,14 +152,7 @@ public class Home extends Activity {
         		layoutParams.setMargins(0, 0, 100, 0);
         		textView.setPadding(0, 0, 0, 150);
         		textView.setLayoutParams(layoutParams);
-        		
-    		
-//				ButlerMessageExpandedView expandedView = new ButlerMessageExpandedView();
-//				FragmentManager manager = getFragmentManager();
-//				FragmentTransaction transaction= manager.beginTransaction();
-//				transaction.add(R.id.my_layout,expandedView,"expandedView");
-//				transaction.commit();
-        		
+
         		Button yesButton = new Button(this);
                 yesButton.setText("OK");
                 yesButton.setId(1);
@@ -201,6 +195,7 @@ public class Home extends Activity {
         		
 				Button okButton = new Button(this);
                 okButton.setText("OK");
+                okButton.setId(4);
                 RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
                 RelativeLayout.LayoutParams layoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 layoutParam.setMargins(100, 1450, 0, 0);
@@ -208,7 +203,22 @@ public class Home extends Activity {
                 
                 okButton.setOnClickListener(new OnClickListener(){
                 	public void onClick(View v) {
-                		
+                		ViewGroup layout = (ViewGroup) findViewById(R.id.my_layout);
+	             		  
+	             		   closeButtonGroup();
+	             		   
+	             		   TextView textView = new TextView(Home.this);
+		           	   	   textView = (TextView)findViewById(R.id.butlerMessageTxt);
+		           	   	   textView.setText(initialMessage);
+		           		   RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		           	   	   layoutParams.setMargins(0, 0, 0, 0);
+		           	   	   textView.setPadding(0, 0, 0, 0);
+		           	   	   textView.setLayoutParams(layoutParams);	
+
+		           	   	   AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+		           	   	   Long time = new GregorianCalendar().getTimeInMillis()+5000;
+		           	   	   Intent priority3 = new Intent(Home.this,Priority3Alarm.class);
+		           	   	   alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(Home.this,4, priority3, PendingIntent.FLAG_UPDATE_CURRENT));
                 		
                 	}
                 });
@@ -217,9 +227,46 @@ public class Home extends Activity {
                 addNoButton();
                 addMoreButton();
                 
-				Toast.makeText(this, "Level 2", Toast.LENGTH_LONG).show();
+//				Toast.makeText(this, "Level 2", Toast.LENGTH_LONG).show();
 			}
         
+			if(intent.getStringExtra("level").equals("3")){
+				
+				TextView textView = new TextView(this);
+        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+        		textView.setText(message);
+        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        		layoutParams.setMargins(0, 0, 100, 0);
+        		textView.setPadding(0, 0, 0, 150);
+        		textView.setLayoutParams(layoutParams);
+        		
+        		
+				Button okButton = new Button(this);
+                okButton.setText("OK");
+                okButton.setId(7);
+                RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
+                RelativeLayout.LayoutParams layoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                layoutParam.setMargins(100, 1450, 0, 0);
+                okButton.setLayoutParams(layoutParam); 
+                
+                okButton.setOnClickListener(new OnClickListener(){
+                	public void onClick(View v) {
+                		ViewGroup layout = (ViewGroup) findViewById(R.id.my_layout);
+	             		   View okBtn = layout.findViewById(7);
+	             		   layout.removeView(okBtn);
+	             		   
+	             		  TextView textView = new TextView(Home.this);
+	  	        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+	  	        		textView.setText(initialMessage);
+	  	        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	  	        		layoutParams.setMargins(0, 0, 0, 0);
+	  	        		textView.setPadding(0, 0, 0, 0);
+	  	        		textView.setLayoutParams(layoutParams);
+                		
+                	}
+                });
+                layout.addView(okButton);
+			}
         
 	    		if(intent.getStringExtra("level").equals("5")){
 	    			TextView textView = new TextView(this);
@@ -269,9 +316,14 @@ public class Home extends Activity {
 	                });
 	              
 	                layout.addView(med1Button);
-	                Toast.makeText(this, "Med Level 1", Toast.LENGTH_LONG).show();
+//	                Toast.makeText(this, "Med Level 1", Toast.LENGTH_LONG).show();
 
 	    		}
+	    		
+	    		
+	    		
+	    		
+	    		
 	    		
 	    		
 	    		
@@ -286,19 +338,19 @@ public class Home extends Activity {
 	        		textView.setLayoutParams(layoutParams);
 	        		
 	        		
-					Button med3Button = new Button(this);
-	                med3Button.setText("OK");
-	                med3Button.setId(6);
+					Button med2Button = new Button(this);
+	                med2Button.setText("OK");
+	                med2Button.setId(6);
 	                RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
 	                RelativeLayout.LayoutParams layoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 	                layoutParam.setMargins(100, 1450, 0, 0);
-	                med3Button.setLayoutParams(layoutParam); 
+	                med2Button.setLayoutParams(layoutParam); 
 	                
-	                med3Button.setOnClickListener(new OnClickListener(){
+	                med2Button.setOnClickListener(new OnClickListener(){
 	                	public void onClick(View v) {
 	                		ViewGroup layout = (ViewGroup) findViewById(R.id.my_layout);
-		             		   View med3Btn = layout.findViewById(6);
-		             		   layout.removeView(med3Btn);
+		             		   View med2Btn = layout.findViewById(6);
+		             		   layout.removeView(med2Btn);
 		             		   
 		             		   TextView textView = new TextView(Home.this);
 			           	   	   textView = (TextView)findViewById(R.id.butlerMessageTxt);
@@ -315,26 +367,52 @@ public class Home extends Activity {
 	                		
 	                	}
 	                });
-	                layout.addView(med3Button);
+	                layout.addView(med2Button);
 	                
 	                
-					Toast.makeText(this, "Level 6", Toast.LENGTH_LONG).show();
+					
 				}
 
 	    		
 	    		if(intent.getStringExtra("level").equals("7")){
 	    			
-					TextView textView = new TextView(this);
+	    			TextView textView = new TextView(this);
 	        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
-	        		textView.setText(initialMessage);
+	        		textView.setText(message);
 	        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 	        		layoutParams.setMargins(0, 0, 100, 0);
 	        		textView.setPadding(0, 0, 0, 150);
 	        		textView.setLayoutParams(layoutParams);
+	        		
+	        		
+					Button okButton = new Button(this);
+	                okButton.setText("OK");
+	                okButton.setId(8);
+	                RelativeLayout layout = (RelativeLayout) findViewById(R.id.my_layout);
+	                RelativeLayout.LayoutParams layoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	                layoutParam.setMargins(100, 1450, 0, 0);
+	                okButton.setLayoutParams(layoutParam); 
+	                
+	                okButton.setOnClickListener(new OnClickListener(){
+	                	public void onClick(View v) {
+	                		closeButtonGroup();
+	                		TextView textView = new TextView(Home.this);
+	    	        		textView = (TextView)findViewById(R.id.butlerMessageTxt);
+	    	        		textView.setText(initialMessage);
+	    	        		RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	    	        		layoutParams.setMargins(0, 0, 0, 0);
+	    	        		textView.setPadding(0, 0, 0, 0);
+	    	        		textView.setLayoutParams(layoutParams);
+	                		
+	                	}
+	                });
+	                layout.addView(okButton);
 	                
 	                
-					Toast.makeText(this, "Level 7", Toast.LENGTH_LONG).show();
+					
 				}
+	    			
+	             
 
         }
     }
@@ -422,10 +500,21 @@ public class Home extends Activity {
 		   View yesBtn = layout.findViewById(1);
 		   View noBtn = layout.findViewById(2);
 		   View moreBtn = layout.findViewById(3);
+		   View okBtn = layout.findViewById(4);
+		   View med1Btn = layout.findViewById(5);
+		   View med2Btn = layout.findViewById(6);
+		   View ok2Btn = layout.findViewById(7);
+		   View ok3Btn = layout.findViewById(8);
+		   
 			
 		   layout.removeView(yesBtn);
 		   layout.removeView(noBtn);
 		   layout.removeView(moreBtn);
+		   layout.removeView(okBtn);
+		   layout.removeView(med1Btn);
+		   layout.removeView(med2Btn);
+		   layout.removeView(ok2Btn);
+		   layout.removeView(ok3Btn);
 		   
 		   TextView textView = new TextView(this);
 	   	   textView = (TextView)findViewById(R.id.butlerMessageTxt);
@@ -520,6 +609,19 @@ public class Home extends Activity {
 			public void onClick(View v) 
 			{
 				Intent intent = new Intent(getApplicationContext(), AboutMe.class);	
+				startActivity(intent); 
+			}
+		}); 
+	}
+	
+	private void learnBtn(){
+		ImageButton learn = (ImageButton)this.findViewById(R.id.learnBtn); 
+		learn.setOnClickListener(new ImageButton.OnClickListener()
+		{ 
+			@Override
+			public void onClick(View v) 
+			{
+				Intent intent = new Intent(getApplicationContext(), Learn.class);	
 				startActivity(intent); 
 			}
 		}); 

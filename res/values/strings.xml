@@ -56,5 +56,6 @@
     <string name="title_activity_learn1">Learn1</string>
     <string name="title_activity_level2">Level2</string>
     <string name="title_activity_social">Social</string>
+    <string name="title_activity_learn">Learn</string>
 
 </resources>

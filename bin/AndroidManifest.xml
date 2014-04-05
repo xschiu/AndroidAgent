@@ -133,6 +133,10 @@
             android:name="com.va.androidagent.Social"
             android:label="@string/title_activity_social" >
         </activity>
+        <activity
+            android:name="com.va.androidagent.Learn"
+            android:label="@string/title_activity_learn" >
+        </activity>
     </application>
 
 </manifest>

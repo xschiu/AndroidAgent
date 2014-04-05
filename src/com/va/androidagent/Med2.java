@@ -45,7 +45,7 @@ public class Med2 extends BroadcastReceiver{
 //        SmsManager sms = SmsManager.getDefault(); 
 //        sms.sendTextMessage(phoneNumberReciver, null, message, null, null);
         // Show the toast  like in above screen shot
-        Toast.makeText(context, "Medium Priority", Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, "Medium Priority", Toast.LENGTH_LONG).show();
     
         
         

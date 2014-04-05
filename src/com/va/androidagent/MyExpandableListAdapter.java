@@ -1,6 +1,9 @@
 package com.va.androidagent;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +11,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.CheckedTextView;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 public class MyExpandableListAdapter extends BaseExpandableListAdapter {
 
@@ -38,22 +43,74 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
       boolean isLastChild, View convertView, ViewGroup parent) {
     final String children = (String) getChild(groupPosition, childPosition);
     TextView text = null;
-    if (convertView == null) {
+    if (convertView == null) {  
       convertView = inflater.inflate(R.layout.listrow_details, null);
     }
     text = (TextView) convertView.findViewById(R.id.textView1);
     text.setText(children);
+    
+    if (children.equals("Ballroom")){
+    	Drawable img = activity.getResources().getDrawable( R.drawable.dancesport );
+        text.setCompoundDrawablesWithIntrinsicBounds( img, null, null, null);
+    }
+    if (children.equals("Salsa")){
+    	Drawable img = activity.getResources().getDrawable( R.drawable.salsa );
+        text.setCompoundDrawablesWithIntrinsicBounds( img, null, null, null);
+    }
+    if (children.equals("Ballet")){
+    	Drawable img = activity.getResources().getDrawable( R.drawable.ballet );
+        text.setCompoundDrawablesWithIntrinsicBounds( img, null, null, null);
+    }
+    
+    if (children.equals("Swimming")){
+    	Drawable img = activity.getResources().getDrawable( R.drawable.swimming );
+        text.setCompoundDrawablesWithIntrinsicBounds( img, null, null, null);
+    }
+    
+    if (children.equals("Running")){
+    	Drawable img = activity.getResources().getDrawable( R.drawable.running );
+        text.setCompoundDrawablesWithIntrinsicBounds( img, null, null, null);
+    }
+    
 
     convertView.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
         Toast.makeText(activity, children,
             Toast.LENGTH_SHORT).show();
+        if (children.equals("Ballroom")){
+        	
+        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=MXmvyPzkkQo"));
+			activity.startActivity(browserIntent);
+        }
+        if (children.equals("Salsa")){
+        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=aV8dS2m9Adc"));
+			activity.startActivity(browserIntent);
+        }
+        if (children.equals("Ballet")){
+        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=ZIm7QNsU-x4"));
+			activity.startActivity(browserIntent);
+        }
+        
+        if (children.equals("Swimming")){
+        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=ioFydzeYgt8"));
+			activity.startActivity(browserIntent);
+        }
+        
+        if (children.equals("Running")){
+        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=Gty7rFrsnBg"));
+			activity.startActivity(browserIntent);
+        }
+        
+        
       }
+        		
     });
     return convertView;
   }
-
+  
+  
+  
   @Override
   public int getChildrenCount(int groupPosition) {
     return groups.get(groupPosition).children.size();
@@ -83,7 +140,7 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
   public long getGroupId(int groupPosition) {
     return 0;
   }
-
+  
   @Override
   public View getGroupView(int groupPosition, boolean isExpanded,
       View convertView, ViewGroup parent) {
@@ -101,6 +158,8 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
     	((CheckedTextView) convertView).setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.stretch, 0);
     if (group.string == "Yoga")
     	((CheckedTextView) convertView).setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.yoga, 0);
+    if (group.string == "Fun")
+    	((CheckedTextView) convertView).setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.fun, 0);
    
     
     return convertView;

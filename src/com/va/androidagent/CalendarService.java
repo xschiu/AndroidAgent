@@ -130,7 +130,7 @@ public class CalendarService {
 	            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 	          
 	        	alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(context,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
-	            
+	              
 	            
 	            
 	            

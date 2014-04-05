@@ -15,15 +15,28 @@
         android:gravity="center_horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Calendar"
+        android:text="Going back to home page?"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/schedulerBtn"
-        android:layout_marginTop="25dp"
-        android:layout_width="fill_parent"
+        android:id="@+id/confirmBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Schedule The Event" 
-        android:onClick="queryCalendar"/>
+        android:layout_alignLeft="@+id/schedulerTxt"
+        android:layout_below="@+id/schedulerTxt"
+        android:layout_marginLeft="79dp"
+        android:onClick="gotoHome"
+        android:text="OK" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/confirmBtn"
+        android:layout_alignBottom="@+id/confirmBtn"
+        android:layout_marginLeft="42dp"
+        android:layout_toRightOf="@+id/confirmBtn"
+      
+        android:text="Cancel" />
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.va.androidagent;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -39,5 +40,9 @@ public class Play1 extends Activity {
 			}
 		}); 
 	}
+	public void minigame(View view){
+		  Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.mindgames.com"));
+		  startActivity(browserIntent);
+	  }
 
 }

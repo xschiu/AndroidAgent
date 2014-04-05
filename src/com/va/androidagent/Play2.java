@@ -57,11 +57,9 @@ public class Play2 extends Activity {
 	    	case 0:
 	    	{
 	    		group = new Group("Dance");
-	    	
-	    		for (int i = 0; i < 5; i++) {
-			        group.children.add("Sub Item" + i);
-			        
-			      }
+    			group.children.add("Ballroom");
+    			group.children.add("Salsa");
+		        group.children.add("Ballet");
 	    		
 			    groups.append(j, group);
 	    		break;
@@ -70,9 +68,8 @@ public class Play2 extends Activity {
 	    	case 1:
 	    	{
 	    		group = new Group("Sport");
-	    		for (int i = 0; i < 5; i++) {
-			        group.children.add("Sub Item" + i);
-			      }
+	    		group.children.add("Swimming");
+	    		group.children.add("Running");
 			    groups.append(j, group);
 	    		break;
 	    	}
@@ -80,9 +77,6 @@ public class Play2 extends Activity {
 	    	case 2:
 	    	{
 	    		group = new Group("Yoga");
-	    		for (int i = 0; i < 5; i++) {
-			        group.children.add("Sub Item" + i);
-			      }
 			    groups.append(j, group);
 	    		break;
 	    	}
@@ -90,24 +84,17 @@ public class Play2 extends Activity {
 	    	case 3:
 	    	{
 	    		group = new Group("Stretch");
-	    		for (int i = 0; i < 5; i++) {
-			        group.children.add("Sub Item" + i);
-			      }
 			    groups.append(j, group);
 	    		break;
 	    	}
 	    	default:
 	    	{
 		    	group = new Group("Fun");
-			      for (int i = 0; i < 5; i++) {
-			        group.children.add("Sub Item" + i);
-			      }
-			      groups.append(j, group);
-			      break;
-		    	}
+			    groups.append(j, group);
+			    break;
 	    	}	
 	      
 	    }
 	  }
-
+	}
 }

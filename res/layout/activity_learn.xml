@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Learn" >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="30dp"
+        android:columnCount="2"
+        android:rowCount="3" >
+
+        <Button
+            android:id="@+id/posbBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:background="#00000000"
+            android:drawableTop="@drawable/posb"
+            android:text="POSB" />
+
+        <Button
+            android:id="@+id/axsBtn"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="1"
+            android:drawableTop="@drawable/axs"
+            android:layout_marginTop="20dp"
+            android:background="#00000000"
+            android:text="AXS" />
+
+        <Button
+            android:id="@+id/karaokeBtn"
+            android:layout_column="1"
+            android:layout_gravity="right|top"
+            android:layout_row="1"
+            android:layout_marginTop="20dp"
+            android:drawableTop="@drawable/karaoke"
+            android:background="#00000000"
+            android:text="Karaoke" />
+
+        <Button
+            android:id="@+id/learnenglishBtn"
+            android:layout_column="0"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left|top"
+            android:background="#00000000"
+            android:layout_row="2"
+            android:drawableTop ="@drawable/learnenglish"
+            android:text="English" />
+
+        <Button
+            android:id="@+id/webcamBtn"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="right|fill_vertical"
+            android:layout_marginTop="20dp"
+            android:layout_row="2"
+            android:background="#00000000"
+            android:drawableTop="@drawable/webcam"
+            android:text="Webcam" />
+
+        <Button
+            android:id="@+id/ibankBtn"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="right|top"
+            android:layout_height="80dp"
+            android:layout_row="0"
+            android:drawableTop="@drawable/ibanking"
+            android:background="#00000000"
+            android:text="iBanking" />
+
+    </GridLayout>
+
+</RelativeLayout>

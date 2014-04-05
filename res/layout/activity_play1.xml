@@ -24,6 +24,7 @@
         android:layout_alignLeft="@+id/physicalActivitiesBtn"
         android:layout_alignRight="@+id/physicalActivitiesBtn"
         android:layout_below="@+id/physicalActivitiesBtn"
+        android:onClick="minigame"
         android:text="Mini Game" />
 
 </RelativeLayout>

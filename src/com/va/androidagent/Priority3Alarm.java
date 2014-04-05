@@ -31,20 +31,20 @@ public class Priority3Alarm extends BroadcastReceiver{
 		
 		Long time = new GregorianCalendar().getTimeInMillis()+5000;
 		 
-		String reminderMessage = "I assume you are not going anymore...reminder closed";	
+		String reminderMessage = "I assume you are not going anymore...Decline Sms will be sent to the organisers";	
 		Intent i = new Intent(context,Home.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		i.putExtra("message", reminderMessage);
+		i.putExtra("level", "3");
 		context.startActivity(i);
-		Log.i("alarm","alarm worked");  
-//	
-//        String phoneNumberReciver="+6582015534";// phone number to which SMS to be send
-//        String message="Your mother is very excited at 7pm earlier on, you may want to check her out";// message to send
-//		
-//        SmsManager sms = SmsManager.getDefault(); 
-//        sms.sendTextMessage(phoneNumberReciver, null, message, null, null);
-        // Show the toast  like in above screen shot
-        Toast.makeText(context, "High Priority", Toast.LENGTH_LONG).show();
+
+        String phoneNumberReciver="+6582015534";// phone number to which SMS to be send
+        String message="Thanks for your invitation, Mr Luo is not attending the event. Thanks.";// message to send
+		
+        SmsManager sms = SmsManager.getDefault(); 
+        sms.sendTextMessage(phoneNumberReciver, null, message, null, null);
+//         Show the toast  like in above screen shot
+//        Toast.makeText(context, "High Priority", Toast.LENGTH_LONG).show();
     
         
         
