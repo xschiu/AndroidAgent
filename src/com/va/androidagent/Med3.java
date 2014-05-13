@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//medication level 3
 public class Med3 extends BroadcastReceiver{
 
 	public final static String MESSAGE = "com.va.androidagent.MESSAGE";
@@ -29,7 +30,7 @@ public class Med3 extends BroadcastReceiver{
               // here you can start an activity or service depending on your need
              // for ex you can start an activity to vibrate phone or to ring the phone  
 		
-		Long time = new GregorianCalendar().getTimeInMillis()+5000;
+		
 		 
 		String reminderMessage = "No response received and sms sent to your daughter";	
 		Intent i = new Intent(context,Home.class);
@@ -37,8 +38,7 @@ public class Med3 extends BroadcastReceiver{
 		i.putExtra("message", reminderMessage);
 		i.putExtra("level", "7");
 		context.startActivity(i);
-		Log.i("alarm","alarm worked");  
-//	
+		//	sms sent 
         String phoneNumberReciver="+6582015534";// phone number to which SMS to be send
         String message="Your mother forgot to eat her medicine, you may want to check her out";// message to send
 		

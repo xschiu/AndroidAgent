@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+//expandable list used in Learn 1
 public class MyExpandableListAdapter extends BaseExpandableListAdapter {
 
   private final SparseArray<Group> groups;

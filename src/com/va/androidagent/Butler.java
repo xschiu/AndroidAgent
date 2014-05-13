@@ -47,38 +47,7 @@ public class Butler extends Activity {
 		getMenuInflater().inflate(R.menu.butler, menu);
 		return true;
 	}
-	
-//	public class MyAdapter extends ArrayAdapter<String>{
-//
-//        public MyAdapter(Context context, int textViewResourceId,   String[] objects) {
-//            super(context, textViewResourceId, objects);
-//        }
-// 
-//        @Override
-//        public View getDropDownView(int position, View convertView,ViewGroup parent) {
-//            return getCustomView(position, convertView, parent);
-//        }
-// 
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            return getCustomView(position, convertView, parent);
-//        }
-// 
-//        public View getCustomView(int position, View convertView, ViewGroup parent) {
-// 
-////            LayoutInflater inflater=getLayoutInflater();
-////            View row=inflater.inflate(R.layout.row, parent, false);
-////            TextView label=(TextView)row.findViewById(R.id.mood);
-////            label.setText(strings[position]);
-//// 
-////            ImageView icon=(ImageView)row.findViewById(R.id.image1);
-////            icon.setImageResource(arr_images[position]);
-// 
-////            return row;
-//        
-//        }   
-//   }
-    
+
    private void sendButton()
   {
 		Button b = (Button)this.findViewById(R.id.sendBtn); 

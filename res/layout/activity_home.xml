@@ -47,6 +47,16 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
+        <DigitalClock
+            android:id="@+id/digitalClock1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@drawable/white"
+            android:textSize="20dp"
+            android:text="DigitalClock" />
+
     </RelativeLayout>
 
 	 <ImageButton

@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//events level 3
 public class Priority3Alarm extends BroadcastReceiver{
 
 	public final static String MESSAGE = "com.va.androidagent.MESSAGE";

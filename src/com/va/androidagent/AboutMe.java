@@ -1,6 +1,6 @@
 package com.va.androidagent;
 
-import android.net.Uri;
+import android.net.Uri;  
 import android.os.Bundle;
 import android.provider.ContactsContract.Contacts;
 import android.app.Activity;
@@ -24,7 +24,7 @@ public class AboutMe extends Activity {
 		getMenuInflater().inflate(R.menu.about_me, menu);
 		return true;
 	}
-
+  
 	private void contactsButton()
 	{
 		ImageButton contacts = (ImageButton)this.findViewById(R.id.contactsButton); 

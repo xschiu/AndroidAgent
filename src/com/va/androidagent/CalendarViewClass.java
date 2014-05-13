@@ -47,23 +47,18 @@ public class CalendarViewClass extends Activity {
 
         startActivity(intent);
     }
-    
-//    @Override
-//    protected void onStop(){
-//    	CalendarService.readCalendar(CalendarViewClass.this);
-//    }
+
     
     public void onClick(View view) {
-		// Intent calIntent = new Intent(Intent.ACTION_INSERT);
-		// calIntent.setData(CalendarContract.Events.CONTENT_URI);
-		// startActivity(calIntent);
+
 	}
     
     public void gotoHome(View v)
 	{
-    	CalendarService.readCalendar(CalendarViewClass.this);
-		Intent intent = new Intent(getApplicationContext(), Home.class);	
-		startActivity(intent); 
+    	
+//    	CalendarService.readCalendar(CalendarViewClass.this);//read calendar event from here
+//		Intent intent = new Intent(getApplicationContext(), Home.class);	
+//		startActivity(intent); 
 
 	}
     
@@ -78,7 +73,6 @@ public class CalendarViewClass extends Activity {
         	alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(this,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
  
             //set the alarm for particular time
-          
             Toast.makeText(this, "Alarm Scheduled", Toast.LENGTH_LONG).show();    
     }
 }

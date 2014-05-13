@@ -13,7 +13,6 @@ public class ButlerMessageExpandedView extends Fragment  {
 	
 		View V = inflater.inflate(R.layout.expanded, container, false);
 
-		//return inflater.inflate(R.layout.smart_butler,container,false);
 		return V;
 
 	}

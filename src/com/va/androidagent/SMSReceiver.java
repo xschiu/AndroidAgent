@@ -8,6 +8,8 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
 
+
+//sms to trigger the event and send information
 public class SMSReceiver extends BroadcastReceiver {
 	   private static final String SMS_RECEIVED = "android.provider.Telephony.SMS_RECEIVED";
        private static final String TAG = "SMSBroadcastReceiver";
@@ -27,8 +29,8 @@ public class SMSReceiver extends BroadcastReceiver {
                        }
                        if (messages.length > -1) {
                     	   receivedTxt = messages[0].getMessageBody();
-                    	   if (receivedTxt.substring(0, 12).equals("Notification")){
-//                    		   String reminderMessage = "There is an event held at Serangoon CC, do you want to attend?";	
+                    	   if (receivedTxt.substring(0, 12).equals("Notification")){ //keyword is "notification", any text message with notification as starting will be recorded
+	
                     			Intent i = new Intent(context,Home.class);
                     			i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     			i.putExtra("message", receivedTxt);

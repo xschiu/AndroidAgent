@@ -9,8 +9,8 @@ package com.va.androidagent;
 
 public final class R {
     public static final class array {
-        public static final int emotion_icon=0x7f050001;
-        public static final int planets=0x7f050000;
+        public static final int emotion_icon=0x7f060001;
+        public static final int planets=0x7f060000;
     }
     public static final class attr {
         /** <p>Must be an integer value, such as "<code>100</code>".
@@ -29,8 +29,8 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
         public static final int Hotpink=0x7f020051;
@@ -118,78 +118,79 @@ containing a value of this type.
         public static final int yoga=0x7f020046;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f090032;
-        public static final int action=0x7f09000a;
-        public static final int action_settings=0x7f090046;
-        public static final int analogClock1=0x7f090017;
-        public static final int android1=0x7f090008;
-        public static final int animationImage=0x7f09003e;
-        public static final int axsBtn=0x7f090025;
-        public static final int butlerMessageTxt=0x7f09001e;
-        public static final int button1=0x7f090039;
-        public static final int calendarBtn=0x7f09001a;
-        public static final int cancelBtn=0x7f090010;
-        public static final int celcius=0x7f090015;
-        public static final int chatBtn=0x7f09001b;
-        public static final int confirmBtn=0x7f09000f;
-        public static final int contactsButton=0x7f090001;
-        public static final int diaryBtn=0x7f090023;
-        public static final int dxLogo=0x7f090044;
-        public static final int editText3=0x7f09002c;
-        public static final int editText5=0x7f09002d;
-        public static final int editText6=0x7f09002b;
-        public static final int edit_name=0x7f09002a;
-        public static final int emailBtn=0x7f09001c;
-        public static final int emotion_icon=0x7f090007;
-        public static final int facebookBtn=0x7f090035;
-        public static final int finishBtn=0x7f09002f;
-        public static final int fragmentTxt=0x7f090043;
-        public static final int functionsLayout=0x7f09003b;
-        public static final int grid=0x7f090041;
-        public static final int gridLayout1=0x7f090034;
-        public static final int gridSpinner=0x7f090016;
-        public static final int ibankBtn=0x7f090029;
-        public static final int image1=0x7f09003f;
-        public static final int imageView1=0x7f09002e;
-        public static final int instaBtn=0x7f090036;
-        public static final int karaokeBtn=0x7f090026;
-        public static final int learnBtn=0x7f090021;
-        public static final int learnenglishBtn=0x7f090027;
-        public static final int linearLayout1=0x7f090014;
-        public static final int linearLayout3=0x7f09001d;
-        public static final int linkedinBtn=0x7f090038;
-        public static final int listView=0x7f090033;
-        public static final int location=0x7f09000d;
-        public static final int mapBtn=0x7f090019;
-        public static final int meBtn=0x7f090018;
-        public static final int menuGroup_Main=0x7f090047;
-        public static final int miniGameBtn=0x7f090031;
-        public static final int mood=0x7f090040;
-        public static final int my_layout=0x7f090013;
-        public static final int output=0x7f090012;
-        public static final int physicalActivitiesBtn=0x7f090030;
-        public static final int playFunctionBtn=0x7f090022;
-        public static final int posbBtn=0x7f090024;
-        public static final int priority1Layout=0x7f09003a;
-        public static final int schedulerTxt=0x7f09000e;
-        public static final int sendBtn=0x7f090009;
-        public static final int smartButlerImage=0x7f090042;
-        public static final int socialize=0x7f090020;
-        public static final int spinner=0x7f090011;
-        public static final int spinner1=0x7f09000b;
-        public static final int startFAButtonId=0x7f09003d;
-        public static final int taskTxt=0x7f09000c;
-        public static final int textView1=0x7f090003;
-        public static final int textView2=0x7f090000;
-        public static final int textView3=0x7f090002;
-        public static final int textView4=0x7f090004;
-        public static final int textView5=0x7f090005;
-        public static final int textView6=0x7f090006;
-        public static final int textViewId1=0x7f09003c;
-        public static final int titleHeading=0x7f090045;
-        public static final int todayDate=0x7f09001f;
-        public static final int twitterBtn=0x7f090037;
-        public static final int webcamBtn=0x7f090028;
+        public static final int LinearLayout1=0x7f0a0033;
+        public static final int action=0x7f0a000a;
+        public static final int action_settings=0x7f0a0047;
+        public static final int analogClock1=0x7f0a0017;
+        public static final int android1=0x7f0a0008;
+        public static final int animationImage=0x7f0a003f;
+        public static final int axsBtn=0x7f0a0026;
+        public static final int butlerMessageTxt=0x7f0a001f;
+        public static final int button1=0x7f0a003a;
+        public static final int calendarBtn=0x7f0a001b;
+        public static final int cancelBtn=0x7f0a0010;
+        public static final int celcius=0x7f0a0015;
+        public static final int chatBtn=0x7f0a001c;
+        public static final int confirmBtn=0x7f0a000f;
+        public static final int contactsButton=0x7f0a0001;
+        public static final int diaryBtn=0x7f0a0024;
+        public static final int digitalClock1=0x7f0a0018;
+        public static final int dxLogo=0x7f0a0045;
+        public static final int editText3=0x7f0a002d;
+        public static final int editText5=0x7f0a002e;
+        public static final int editText6=0x7f0a002c;
+        public static final int edit_name=0x7f0a002b;
+        public static final int emailBtn=0x7f0a001d;
+        public static final int emotion_icon=0x7f0a0007;
+        public static final int facebookBtn=0x7f0a0036;
+        public static final int finishBtn=0x7f0a0030;
+        public static final int fragmentTxt=0x7f0a0044;
+        public static final int functionsLayout=0x7f0a003c;
+        public static final int grid=0x7f0a0042;
+        public static final int gridLayout1=0x7f0a0035;
+        public static final int gridSpinner=0x7f0a0016;
+        public static final int ibankBtn=0x7f0a002a;
+        public static final int image1=0x7f0a0040;
+        public static final int imageView1=0x7f0a002f;
+        public static final int instaBtn=0x7f0a0037;
+        public static final int karaokeBtn=0x7f0a0027;
+        public static final int learnBtn=0x7f0a0022;
+        public static final int learnenglishBtn=0x7f0a0028;
+        public static final int linearLayout1=0x7f0a0014;
+        public static final int linearLayout3=0x7f0a001e;
+        public static final int linkedinBtn=0x7f0a0039;
+        public static final int listView=0x7f0a0034;
+        public static final int location=0x7f0a000d;
+        public static final int mapBtn=0x7f0a001a;
+        public static final int meBtn=0x7f0a0019;
+        public static final int menuGroup_Main=0x7f0a0048;
+        public static final int miniGameBtn=0x7f0a0032;
+        public static final int mood=0x7f0a0041;
+        public static final int my_layout=0x7f0a0013;
+        public static final int output=0x7f0a0012;
+        public static final int physicalActivitiesBtn=0x7f0a0031;
+        public static final int playFunctionBtn=0x7f0a0023;
+        public static final int posbBtn=0x7f0a0025;
+        public static final int priority1Layout=0x7f0a003b;
+        public static final int schedulerTxt=0x7f0a000e;
+        public static final int sendBtn=0x7f0a0009;
+        public static final int smartButlerImage=0x7f0a0043;
+        public static final int socialize=0x7f0a0021;
+        public static final int spinner=0x7f0a0011;
+        public static final int spinner1=0x7f0a000b;
+        public static final int startFAButtonId=0x7f0a003e;
+        public static final int taskTxt=0x7f0a000c;
+        public static final int textView1=0x7f0a0003;
+        public static final int textView2=0x7f0a0000;
+        public static final int textView3=0x7f0a0002;
+        public static final int textView4=0x7f0a0004;
+        public static final int textView5=0x7f0a0005;
+        public static final int textView6=0x7f0a0006;
+        public static final int textViewId1=0x7f0a003d;
+        public static final int titleHeading=0x7f0a0046;
+        public static final int todayDate=0x7f0a0020;
+        public static final int twitterBtn=0x7f0a0038;
+        public static final int webcamBtn=0x7f0a0029;
     }
     public static final class layout {
         public static final int activity_about_me=0x7f030000;
@@ -203,80 +204,87 @@ containing a value of this type.
         public static final int activity_main=0x7f030008;
         public static final int activity_play1=0x7f030009;
         public static final int activity_play2=0x7f03000a;
-        public static final int activity_social=0x7f03000b;
-        public static final int calendarview=0x7f03000c;
-        public static final int expanded=0x7f03000d;
-        public static final int frame_animations_layout=0x7f03000e;
-        public static final int grid_view_item=0x7f03000f;
-        public static final int listrow_details=0x7f030010;
-        public static final int listrow_group=0x7f030011;
-        public static final int my_table=0x7f030012;
-        public static final int row=0x7f030013;
-        public static final int smart_butler=0x7f030014;
-        public static final int title_bar=0x7f030015;
+        public static final int activity_search_event=0x7f03000b;
+        public static final int activity_social=0x7f03000c;
+        public static final int calendarview=0x7f03000d;
+        public static final int expanded=0x7f03000e;
+        public static final int frame_animations_layout=0x7f03000f;
+        public static final int grid_view_item=0x7f030010;
+        public static final int listrow_details=0x7f030011;
+        public static final int listrow_group=0x7f030012;
+        public static final int my_table=0x7f030013;
+        public static final int row=0x7f030014;
+        public static final int smart_butler=0x7f030015;
+        public static final int title_bar=0x7f030016;
     }
     public static final class menu {
-        public static final int about_me=0x7f080000;
-        public static final int animation=0x7f080001;
-        public static final int butler=0x7f080002;
-        public static final int calendar=0x7f080003;
-        public static final int calendar_view=0x7f080004;
-        public static final int chat=0x7f080005;
-        public static final int email=0x7f080006;
-        public static final int frame_animation=0x7f080007;
-        public static final int functions=0x7f080008;
-        public static final int home=0x7f080009;
-        public static final int learn=0x7f08000a;
-        public static final int learn1=0x7f08000b;
-        public static final int level2=0x7f08000c;
-        public static final int main=0x7f08000d;
-        public static final int menu=0x7f08000e;
-        public static final int notification=0x7f08000f;
-        public static final int play=0x7f080010;
-        public static final int play1=0x7f080011;
-        public static final int play2=0x7f080012;
-        public static final int play_function=0x7f080013;
-        public static final int record_tutorial=0x7f080014;
-        public static final int social=0x7f080015;
-        public static final int tutorial=0x7f080016;
+        public static final int about_me=0x7f090000;
+        public static final int animation=0x7f090001;
+        public static final int butler=0x7f090002;
+        public static final int calendar=0x7f090003;
+        public static final int calendar_view=0x7f090004;
+        public static final int chat=0x7f090005;
+        public static final int email=0x7f090006;
+        public static final int frame_animation=0x7f090007;
+        public static final int functions=0x7f090008;
+        public static final int home=0x7f090009;
+        public static final int learn=0x7f09000a;
+        public static final int learn1=0x7f09000b;
+        public static final int level2=0x7f09000c;
+        public static final int main=0x7f09000d;
+        public static final int menu=0x7f09000e;
+        public static final int notification=0x7f09000f;
+        public static final int play=0x7f090010;
+        public static final int play1=0x7f090011;
+        public static final int play2=0x7f090012;
+        public static final int play_function=0x7f090013;
+        public static final int record_tutorial=0x7f090014;
+        public static final int search_event=0x7f090015;
+        public static final int social=0x7f090016;
+        public static final int tutorial=0x7f090017;
+    }
+    public static final class raw {
+        public static final int events=0x7f040000;
+        public static final int timeline=0x7f040001;
     }
     public static final class string {
-        public static final int action_chat=0x7f06000b;
-        public static final int action_email=0x7f06000f;
-        public static final int action_events=0x7f06000c;
-        public static final int action_important=0x7f06000d;
-        public static final int action_search=0x7f06000a;
-        public static final int action_settings=0x7f060001;
-        public static final int action_share=0x7f06000e;
-        public static final int app_name=0x7f060000;
-        public static final int defaultText=0x7f060018;
-        public static final int greeting=0x7f060002;
-        public static final int hello=0x7f060017;
-        public static final int hello_world=0x7f060005;
-        public static final int prompt=0x7f060009;
-        public static final int select_Category=0x7f060010;
-        public static final int title_activity_about_me=0x7f060019;
-        public static final int title_activity_animation=0x7f060004;
-        public static final int title_activity_butler=0x7f060014;
-        public static final int title_activity_calendar=0x7f060013;
+        public static final int action_chat=0x7f07000b;
+        public static final int action_email=0x7f07000f;
+        public static final int action_events=0x7f07000c;
+        public static final int action_important=0x7f07000d;
+        public static final int action_search=0x7f07000a;
+        public static final int action_settings=0x7f070001;
+        public static final int action_share=0x7f07000e;
+        public static final int app_name=0x7f070000;
+        public static final int defaultText=0x7f070018;
+        public static final int greeting=0x7f070002;
+        public static final int hello=0x7f070017;
+        public static final int hello_world=0x7f070005;
+        public static final int prompt=0x7f070009;
+        public static final int select_Category=0x7f070010;
+        public static final int title_activity_about_me=0x7f070019;
+        public static final int title_activity_animation=0x7f070004;
+        public static final int title_activity_butler=0x7f070014;
+        public static final int title_activity_calendar=0x7f070013;
         /**  <string name="title_activity_tutorial">Tutorial</string> 
          */
-        public static final int title_activity_calendar_view=0x7f060012;
-        public static final int title_activity_chat=0x7f060007;
-        public static final int title_activity_email=0x7f060011;
-        public static final int title_activity_frame_animation=0x7f060003;
-        public static final int title_activity_functions=0x7f060006;
-        public static final int title_activity_home=0x7f060008;
-        public static final int title_activity_learn=0x7f060021;
-        public static final int title_activity_learn1=0x7f06001e;
-        public static final int title_activity_level2=0x7f06001f;
-        public static final int title_activity_notification=0x7f060015;
-        public static final int title_activity_play=0x7f06001b;
-        public static final int title_activity_play1=0x7f06001d;
-        public static final int title_activity_play2=0x7f06001c;
-        public static final int title_activity_play_function=0x7f06001a;
-        public static final int title_activity_record_tutorial=0x7f060016;
-        public static final int title_activity_social=0x7f060020;
+        public static final int title_activity_calendar_view=0x7f070012;
+        public static final int title_activity_chat=0x7f070007;
+        public static final int title_activity_email=0x7f070011;
+        public static final int title_activity_frame_animation=0x7f070003;
+        public static final int title_activity_functions=0x7f070006;
+        public static final int title_activity_home=0x7f070008;
+        public static final int title_activity_learn=0x7f070021;
+        public static final int title_activity_learn1=0x7f07001e;
+        public static final int title_activity_level2=0x7f07001f;
+        public static final int title_activity_notification=0x7f070015;
+        public static final int title_activity_play=0x7f07001b;
+        public static final int title_activity_play1=0x7f07001d;
+        public static final int title_activity_play2=0x7f07001c;
+        public static final int title_activity_play_function=0x7f07001a;
+        public static final int title_activity_record_tutorial=0x7f070016;
+        public static final int title_activity_search_event=0x7f070022;
+        public static final int title_activity_social=0x7f070020;
     }
     public static final class style {
         /** 
@@ -300,13 +308,13 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int appTheme=0x7f070004;
-        public static final int titleBarBackground=0x7f070003;
-        public static final int titleBarHeading=0x7f070002;
+        public static final int AppTheme=0x7f080001;
+        public static final int appTheme=0x7f080004;
+        public static final int titleBarBackground=0x7f080003;
+        public static final int titleBarHeading=0x7f080002;
     }
     public static final class styleable {
         /** Attributes that can be used with a ExpandableTextView.

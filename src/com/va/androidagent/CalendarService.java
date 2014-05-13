@@ -24,12 +24,6 @@ import android.text.format.Time;
 import android.widget.Toast;
 
 
-/*
- * References:
- * http://stackoverflow.com/questions/5883938/getting-events-from-calendar
- */
-
-
 public class CalendarService {
 	
 
@@ -130,11 +124,8 @@ public class CalendarService {
 	            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 	          
 	        	alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(context,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
-	              
-	            
-	            
-	            
-	            
+    
+	            //To check the event exported from the calendar is correct
 	            System.out.println("First item is " + eventList.subList(0, 1).toString());
 	            System.out.println("title=" + title + "   start= "+ start + "  time " + time);
 	    	    Collections.sort(eventList);

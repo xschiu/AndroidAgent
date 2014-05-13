@@ -31,24 +31,13 @@ public class AlarmReceiver extends BroadcastReceiver{
 		
 		Long time = new GregorianCalendar().getTimeInMillis()+5000;
 
-		String reminderMessage = "There is an event held at Serangoon CC, do you want to attend?";	
+		String reminderMessage = "There is an event held at Toapayoh CC, do you want to attend?";	
 		Intent i = new Intent(context,Home.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		i.putExtra("message", reminderMessage);
 		i.putExtra("level", "1");
 		context.startActivity(i);
 
-		
-		
-		
-
-//	
-//        String phoneNumberReciver="+6582015534";// phone number to which SMS to be send
-//        String message="Your mother is very excited at 7pm earlier on, you may want to check her out";// message to send
-//		
-//        SmsManager sms = SmsManager.getDefault(); 
-//        sms.sendTextMessage(phoneNumberReciver, null, message, null, null);
-        // Show the toast  like in above screen shot
         Toast.makeText(context, "Low Priority", Toast.LENGTH_LONG).show();
     
     }

@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+//Emoticons 
 
 public class MyFragment extends Fragment {
 
